@@ -3,10 +3,10 @@ import Link from 'next/link';
 const Header = () => (
   <header>
     <div className='container'>
-      <div className='flex spaceBetween' style={{ padding: '.8rem 0' }}>
+      <div className='flex spaceBetween upper-nav' style={{ padding: '.8rem 0' }}>
         <div
           style={{
-            width: '148px',
+            width: '140px',
             overflow: 'hidden',
             height: '40px',
             marginRight: '2rem',
@@ -57,9 +57,10 @@ const Header = () => (
           style={{
             display: 'flex',
             alignItems: 'center',
-            color: '#fff',
+            color: '#f3f3f3',
+            textDecoration: 'none',
+            whiteSpace: 'nowrap',
             letterSpacing: '1px',
-            fontSize: '.85rem',
           }}
         >
           <Link href='/signin'>
@@ -83,7 +84,7 @@ const Header = () => (
       </div>
     </div>
     <div
-      className='flex align spaceBetween'
+      className='flex align spaceBetween lower-nav'
       style={{ borderTop: '1px solid rgba(225, 225, 225, .1)' }}
     >
       <span className='hamburger menu-icon flex align center'>
