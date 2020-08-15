@@ -40,9 +40,9 @@ const Home = ({ comics }) => {
               {comics.map((comic, i) => (
                 <div className='comic' key={comic.id}>
                   <Link href='/comics/[slug]' as={comic.link}>
-                    <a>
+                    <a data-comicid={comic.id}>
                       <div className='comic-image'>
-                        <img src={comic.image} alt='comic image' />
+                        <img src={comic.imageUrl} alt='comic image' />
                       </div>
                       <div className='comic-content'>
                         <h5 className='comic-title'>{comic.title}</h5>
@@ -62,18 +62,21 @@ const Home = ({ comics }) => {
 };
 
 export async function getStaticProps() {
+  const req = await fetch(
+    'https://prymaze-comics.firebaseio.com/mycomics.json'
+  );
+  const comicsRes = await req.json();
+  let comics = [];
+  for (const comicId in comicsRes) {
+    comics.push({
+      ...comicsRes[comicId],
+      id: comicId,
+      link: `/comics/${comicsRes[comicId].title.replace(/[\s():]+/g, '-')}`,
+    });
+  }
   return {
     props: {
-      comics: [...Array(6)].map((_, i) => ({
-        id: Math.random(),
-        link: `/comics/Star Wars: Darth Vader (2020) ${++i}`.replace(
-          /[\s:]+/g,
-          '-'
-        ),
-        title: `Star Wars: Darth Vader (2020) #${i}`,
-        image: '/assets/comic-sample-2.jpg',
-        publisher: 'Andrei'
-      })),
+      comics,
     },
   };
 }

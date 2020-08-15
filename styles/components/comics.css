@@ -63,6 +63,13 @@
 .lower-nav {
   border-top: 1px solid #393939;
 }
+.lower-nav .search {
+  margin: 0;
+  flex: 1;
+}
+.lower-nav .search input {
+  width: 100%;
+}
 @media (min-width: 570px) {
   .lower-nav {
     display: none;
@@ -98,17 +105,22 @@
   margin: 3rem auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2rem;
 }
 .comic-detail-title {
   font-size: calc(2vw + 1.4rem);
   margin-bottom: 2rem;
+}
+.search.desktop-only {
+  display: none;
 }
 @media (min-width: 570px) {
   .comic-detail {
     display: grid;
     grid-template-columns: minmax(240px, 1fr) 2fr;
     grid-gap: calc(7vw);
+  }
+  .search.desktop-only {
+    display: flex;
   }
 }
 .comic-detail-content p {
@@ -121,6 +133,7 @@
 }
 .comic-detail-image {
   align-self: flex-start;
+  margin-bottom: 2rem;
 }
 /* .comic-detail {
   margin: 3rem auto;
@@ -162,14 +175,15 @@
   display: flex;
   align-items: center;
 }
-
 .search svg {
   position: absolute;
   margin: 0 0.8rem;
   width: 18px;
   height: 18px;
 }
-
+.search-box {
+  position: relative;
+}
 .search-input {
   padding: 12px 12px 12px 44px;
   border: none;
@@ -185,19 +199,17 @@
 }
 
 .menu-icon {
-  width: 4rem;
-  height: 3.2rem;
+  width: 3.2rem;
+  height: 2.8rem;
   cursor: pointer;
 }
-
+.menu-icon svg {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.75;
+}
 .search-input::-webkit-input-placeholder {
   color: #c2c2c2;
-}
-
-@media (max-width: 570px) {
-  .search {
-    display: none;
-  }
 }
 
 /* HAMBURGER STYLES */
@@ -207,7 +219,6 @@
 }
 
 /* SEARCH ICON STYLES */
-
-.search-icon {
+.lower-nav .search-icon {
   border-left: 1px solid #393939;
 }

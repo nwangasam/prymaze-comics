@@ -1,0 +1,14 @@
+POST https://prymaze-comics.firebaseio.com/mycomics.json
+Content-Type: application/json
+
+{
+    "genres": "Comedy, tragedy",
+    "imageUrl": "https://i.annihil.us/u/prod/marvel/i/mg/a/80/5e9e074f67ed8/clean.jpg",
+    "publishedDate": "35/03/2020",
+    "publisher": "the bush",
+    "title": "Coming of Hulk Adventures",
+    "writer": "Moi Sani"
+}
+
+###
+GET  https://prymaze-comics.firebaseio.com/mycomics.json

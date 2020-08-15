@@ -73,3 +73,24 @@ header {
 .flex.align {
   align-items: center;
 }
+.desktop-only {
+  display: none;
+}
+
+.logo,
+.logo:active,
+.logo:visited,
+.logo:link {
+  max-width: calc(6rem + 2vw);
+  display: inline-block;
+  position: relative;
+  top: 0.2rem;
+}
+@media (min-width: 570px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+}
