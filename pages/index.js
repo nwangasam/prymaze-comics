@@ -66,7 +66,7 @@ export async function getStaticProps() {
     props: {
       comics: [...Array(6)].map((_, i) => ({
         id: Math.random(),
-        link: `/comics/Star Wars: Darth Vader (2020) #${++i}`.replace(
+        link: `/comics/Star Wars: Darth Vader (2020) ${++i}`.replace(
           /[\s:]+/g,
           '-'
         ),

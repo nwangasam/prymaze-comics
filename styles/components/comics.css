@@ -107,14 +107,12 @@
     grid-gap: calc(7vw);
   }
 }
+.comic-detail-content p{
+  font-size: 1rem;
+} 
 /* .comic-detail {
   margin: 3rem auto;
   max-width: 740px;
-}
-.comic-detail-content {
-  padding-top: 2rem;
-  flex: 0 0 300px;
-  align-self: stretch;
 }
 .comic-detail-image {
   flex: 1 1 200px;
