@@ -15,17 +15,24 @@ const Comic = ({ slug }) => {
       <Header />
       <main>
         <div className='container'>
-          <h3 style={{ fontSize: '2rem', margin: '2rem 0' }}>{slug}</h3>
-          <img
-            src='/assets/comic-2.jpg'
-            alt='comic pages'
-            style={{ display: 'block', width: '100%', marginBottom: '1.2rem' }}
-          />
-          <img
-            src='/assets/comic-2.jpg'
-            alt='comic pages'
-            style={{ display: 'block', width: '100%', marginBottom: '1.2rem' }}
-          />
+          <div className='comic-detail flex flex-wrap'>
+            <div
+              className='comic-detail-image'
+            >
+              <img
+                src='/assets/comic-sample-2.jpg'
+                alt='comic pages'
+                style={{
+                  display: 'block',
+                  width: '100%',
+                }}
+              />
+            </div>
+            <div className='comic-detail-content' style={{ flex: '1', alignSelf: 'stretch' }}>
+              <h3 style={{ fontSize: '1.6rem' }}>{slug}</h3>
+              <p></p>
+            </div>
+          </div>
         </div>
       </main>
       <footer></footer>
@@ -43,7 +50,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   return {
     paths: [...Array(6)].map((_, i) =>
-      `/comics/Immortal Hulk: Great Power ${++i}`.replace(/[\s:]+/g, '-')
+      `/comics/Star Wars: Darth Vader (2020) #${++i}`.replace(/[\s:]+/g, '-')
     ),
     fallback: false,
   };

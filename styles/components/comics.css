@@ -1,166 +1,203 @@
 .comics {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 25px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+  width: 100%;
 }
 
 .comic {
-    width: 100%;
-    user-select: none;
+  width: 100%;
+  user-select: none;
 }
 
 .comic:hover .comic-image {
-    box-shadow: 0 22px 20px -10px rgba(0, 0, 0, 0.45);
-    transition: all 0.17s ease-in-out;
-    transform: translate3d(0, -10px, 0) scale(1.03);
+  box-shadow: 0 22px 20px -10px rgba(0, 0, 0, 0.45);
+  transition: all 0.17s ease-in-out;
+  transform: translate3d(0, -10px, 0) scale(1.03);
 }
 
 .comic:hover .comic-title {
-    color: #eb2328;
+  color: #eb2328;
 }
 
 .comic-image {
-    margin-bottom: 1rem;
-    transition: all 0.17s ease-in-out;
+  margin-bottom: 1rem;
+  transition: all 0.17s ease-in-out;
 }
 
 .comic-image,
 .comic-image:active {
-    box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
 }
 
 .comic-image,
 .comic-image img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .comic-title {
-    color: rgba(32, 32, 32, 1);
-    font-weight: 600;
-    font-size: 17px;
+  color: rgba(32, 32, 32, 1);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.28rem;
+  font-size: 1rem;
 }
 
 .comic-content {
-    margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .heading-1 {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 26px;
-    margin: 30px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 26px;
+  margin: 30px 0;
 }
-
+.comic-publisher {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.lower-nav {
+  border-top: 1px solid #393939;
+}
 @media (min-width: 570px) {
-    .lower-nav {
-        display: none;
-    }
+  .lower-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 370px) {
-    .comics {
-        grid-gap: 1rem;
-    }
+  .comics {
+    grid-gap: 1rem;
+  }
 }
 
 @media (min-width: 320px) {
-    .comics {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .comics {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 601px) {
-    .comics {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .comics {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 839px) {
-    .comics {
-        grid-template-columns: repeat(5, 1fr);
-    }
+  .comics {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
+/* COMIC DETAILS */
+.comic-detail {
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+@media (min-width: 570px) {
+  .comic-detail {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) 2fr;
+    grid-gap: calc(7vw);
+  }
+}
+/* .comic-detail {
+  margin: 3rem auto;
+  max-width: 740px;
+}
+.comic-detail-content {
+  padding-top: 2rem;
+  flex: 0 0 300px;
+  align-self: stretch;
+}
+.comic-detail-image {
+  flex: 1 1 200px;
+}
+@media (min-width: 570px) {
+  .comic-detail-image {
+    margin-right: 5rem;
+
+  }
+} */
 
 /* User profile Styles */
 
 .user-profile {
-    font-size: .85rem;
-    font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: bold;
+  align-self: stretch;
 }
 
 .user-profile-link:hover {
-    color: #eb2328;
+  color: #eb2328;
 }
 
 @media (max-width: 370px) {
-    .user-profile {
-        font-size: .8rem;
-    }
+  .user-profile {
+    font-size: 0.8rem;
+  }
 }
-
 
 /* Search Styles */
 
 .search {
-    margin: 0 2rem 0 auto;
-    flex: 1 1 25%;
-    position: relative;
-    display: flex;
-    align-items: center;
+  margin: 0 2rem 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .search svg {
-    position: absolute;
-    margin: 0 0.8rem;
-    width: 18px;
-    height: 18px;
+  position: absolute;
+  margin: 0 0.8rem;
+  width: 18px;
+  height: 18px;
 }
 
 .search-input {
-    padding: 12px 12px 12px 44px;
-    border: none;
-    width: 100%;
-    border-radius: 2px;
-    display: block;
-    outline: none;
-    background: #202121;
-    color: '#f9f9f9';
-    letter-spacing: '1.2px';
-    font-size: 15px;
-    /* background: center / contain no-repeat url("../../media/examples/firefox-logo.svg"),
+  padding: 12px 12px 12px 44px;
+  border: none;
+  border-radius: 2px;
+  display: block;
+  outline: none;
+  background: #202121;
+  color: '#f9f9f9';
+  letter-spacing: '1.2px';
+  font-size: 15px;
+  /* background: center / contain no-repeat url("../../media/examples/firefox-logo.svg"),
             #eee 35% url("../../media/examples/lizard.png"); */
 }
 
 .menu-icon {
-    width: 4rem;
-    height: 3.2rem;
-    cursor: pointer;
+  width: 4rem;
+  height: 3.2rem;
+  cursor: pointer;
 }
 
 .search-input::-webkit-input-placeholder {
-    color: #c2c2c2;
+  color: #c2c2c2;
 }
 
 @media (max-width: 570px) {
-    .search {
-        display: none;
-    }
+  .search {
+    display: none;
+  }
 }
-
 
 /* HAMBURGER STYLES */
 
 .hamburger {
-    border-right: 1px solid #393939;
+  border-right: 1px solid #393939;
 }
-
 
 /* SEARCH ICON STYLES */
 
 .search-icon {
-    border-left: 1px solid #393939;
+  border-left: 1px solid #393939;
 }

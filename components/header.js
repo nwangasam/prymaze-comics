@@ -3,7 +3,10 @@ import Link from 'next/link';
 const Header = () => (
   <header>
     <div className='container'>
-      <div className='flex spaceBetween upper-nav' style={{ padding: '.8rem 0' }}>
+      <div
+        className='flex spaceBetween upper-nav'
+        style={{ padding: '.8rem 0' }}
+      >
         <div
           style={{
             width: '140px',
@@ -32,10 +35,7 @@ const Header = () => (
               style={{ margin: '0 2rem 0 auto', transform: 'scale(.85)' }}
             /> */}
         <div className='search' style={{ color: '#fff' }}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 23 23.615'
-          >
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23.615'>
             <g id='Search' opacity='.3'>
               <path
                 id='Search-Path'
@@ -64,7 +64,9 @@ const Header = () => (
           }}
         >
           <Link href='/signin'>
-            <a className='user-profile-link'>SIGN IN</a>
+            <a className='user-profile-link' style={{ alignSelf: 'center' }}>
+              SIGN IN
+            </a>
           </Link>
           <span
             style={{
@@ -77,7 +79,9 @@ const Header = () => (
             |
           </span>
           <Link href='/login'>
-            <a className='user-profile-link'>JOIN</a>
+            <a className='user-profile-link' style={{ alignSelf: 'center' }}>
+              JOIN
+            </a>
           </Link>
         </div>
         {/* <img src='/assets/hamburger.svg' alt='Hamburger icon' /> */}
@@ -85,7 +89,6 @@ const Header = () => (
     </div>
     <div
       className='flex align spaceBetween lower-nav'
-      style={{ borderTop: '1px solid rgba(225, 225, 225, .1)' }}
     >
       <span className='hamburger menu-icon flex align center'>
         <img src='/assets/hamburger.svg' alt='Hamburger icon' />
