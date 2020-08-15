@@ -30,7 +30,7 @@ const Comic = ({ slug }) => {
               className='comic-detail-content'
               style={{ flex: '1', alignSelf: 'stretch' }}
             >
-              <h3 style={{ fontSize: '1.6rem' }} className='comic-detail-title'>{slug}</h3>
+              <h3 className='comic-detail-title'>{slug}</h3>
 
               <p className='comic-detail-genres'>
                 <strong>Genres:</strong> Action, Adventure, Spperhero
@@ -45,11 +45,27 @@ const Comic = ({ slug }) => {
                 <strong>Published date:</strong> 12th Nov., 2020
               </p>
               <p className='comic-detail-summary'>
+                <strong>Summary:</strong>
+                <br />
                 It’s an interdimensional tour for Gwen Stacy and the Mary Janes
                 – but just as things start going right for Gwen outside of the
                 webs, something unsettling is happening to her suit. Something
                 GWENOMous...
               </p>
+              <div className='banner-btns' style={{ margin: '2rem 0' }}>
+                <button
+                  className='signup'
+                  style={{
+                    border: '1px solid #eb2328',
+                    color: '#eb2328',
+                    fontSize: '.85em',
+                    fontWeight: '600',
+                    letterSpacing: '1.4px',
+                  }}
+                >
+                  READ COMIC
+                </button>
+              </div>
             </div>
           </div>
         </div>

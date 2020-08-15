@@ -100,6 +100,10 @@
   grid-template-columns: 1fr;
   grid-gap: 2rem;
 }
+.comic-detail-title {
+  font-size: calc(2vw + 1.4rem);
+  margin-bottom: 2rem;
+}
 @media (min-width: 570px) {
   .comic-detail {
     display: grid;
@@ -107,9 +111,17 @@
     grid-gap: calc(7vw);
   }
 }
-.comic-detail-content p{
-  font-size: 1rem;
-} 
+.comic-detail-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0.875rem;
+}
+.comic-detail-content p strong {
+  font-size: 1.2rem;
+}
+.comic-detail-image {
+  align-self: flex-start;
+}
 /* .comic-detail {
   margin: 3rem auto;
   max-width: 740px;
@@ -128,7 +140,7 @@
 
 .user-profile {
   font-size: 0.85rem;
-  font-weight: bold;
+  font-weight: 500;
   align-self: stretch;
 }
 
