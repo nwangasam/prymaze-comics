@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
     "genres": "Action, Scene",
-    "title": "Maestro #1",
+    "title": "Spider-Man Facsimile Edition (2020) #1",
     "publisher": "German Perita",
     "writer": "David Peter",
-    "imageUrl": "https://i.annihil.us/u/prod/marvel/i/mg/6/a0/5f2c342578dd4/portrait_uncanny.jpg",
+    "imageUrl": "https://i.annihil.us/u/prod/marvel/i/mg/6/50/5f2c342578db1/portrait_uncanny.jpg",
     "publishedDate": "August 19, 2020",
-    "summary": "THE STORY YOU’VE WAITED DECADES FOR: THE ORIGIN OF MAESTRO! Almost 30 years after the landmark story Future Imperfect, legendary INCREDIBLE HULK scribe Peter David returns to the far-future version of the Hulk known as Maestro — the master of what remains of the world. With astounding art from HULK veteran Dale Keown and up-and-comer Germán Peralta, Maestro will answer questions that have haunted Hulk fans for years — and inspire some new ones. How did the world fall and the Maestro rise? What happened to the world’s heroes in between? And where is the Hulk we know and love? Find out here!"
+    "summary": "Celebrating the 30th Anniversary of Spider-Man #1 In 1990, superstar AMAZING SPIDER-MAN artist Todd McFarlane wanted to stretch his creative muscles as a writer — and the result was a brand-new SPIDER-MAN book that needed no superlative! Boasting one of the most famous comic-book covers ever drawn, the record-breaking first issue sold over two million copies — and inside, McFarlane’s Spider-Man looked more extraordinary than ever. But why has Spidey’s classic foe the Lizard begun a brutal killing spree? As the pounding drums spell doom, the torment is only beginning for Spider-Man and Dr. Curt Connors! It’s one of the all-time great Marvel comic books, boldly re-presented in its original form, ads and all! Reprinting SPIDER-MAN (1990) #1."
 }
 
 ###
