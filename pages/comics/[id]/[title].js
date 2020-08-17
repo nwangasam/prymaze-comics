@@ -14,17 +14,17 @@ const Comic = ({ comic }) => {
     <>
       <Head>
         <title>{comic.title}</title>
-        <link rel='shortcut icon' href={comic.cover.fields.file.url} />
+        <link rel='icon' href={`${comic.cover.fields.file.url}?&h=40&q=40`} />
       </Head>
       <Header />
-      
+
       <main>
         <div className='container'>
           <div className='comic-detail flex flex-wrap'>
             <h3 className='comic-detail-title mobile-only'>{comic.title}</h3>
             <div className='comic-detail-image'>
               <img
-                src={comic.cover.fields.file.url}
+                src={`${comic.cover.fields.file.url}`}
                 alt={comic.title}
                 title={comic.title}
                 style={{
