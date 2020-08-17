@@ -14,7 +14,7 @@ const Comic = ({ comic }) => {
     <>
       <Head>
         <title>{comic.title}</title>
-        <link rel='icon' href={`${comic.cover.fields.file.url}?&h=40&q=40`} />
+        <link rel='icon' href={`${comic.cover.fields.file.url}?fm=png&h=130&q=50`} />
       </Head>
       <Header />
 
