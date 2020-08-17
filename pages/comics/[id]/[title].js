@@ -1,8 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
+import { createClient } from 'contentful';
 // Components
-import Header from '../../components/header';
+import Header from '../../../components/header';
+
+const client = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+});
 
 const Comic = ({ comic }) => {
   return (
@@ -12,14 +17,16 @@ const Comic = ({ comic }) => {
         <link rel='shortcut icon' href='/assets/comic-2.jpg' />
       </Head>
       <Header />
+      
       <main>
         <div className='container'>
           <div className='comic-detail flex flex-wrap'>
             <h3 className='comic-detail-title mobile-only'>{comic.title}</h3>
             <div className='comic-detail-image'>
               <img
-                src={comic.imageUrl}
-                alt='Comic cover image'
+                src={comic.cover.fields.file.url}
+                alt={comic.title}
+                title={comic.title}
                 style={{
                   display: 'block',
                   width: '100%',
@@ -42,11 +49,13 @@ const Comic = ({ comic }) => {
                 <strong>Writer:</strong> {comic.writer}
               </p>
               <p className='comic-detail-published-date'>
-                <strong>Published date:</strong> {comic['published-date']}
+                <strong>Published date:</strong>{' '}
+                {new Date(comic.date).toDateString()}
               </p>
               <p className='comic-detail-summary'>
                 <strong>Summary:</strong>
-                <br />{comic.summary}
+                <br />
+                {comic.summary}
               </p>
               <div className='banner-btns' style={{ margin: '2rem 0' }}>
                 <button
@@ -72,26 +81,26 @@ const Comic = ({ comic }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const req = await fetch(
-    'https://prymaze-comics.firebaseio.com/comics/comicId.json'
-  );
-  const data = await req.json();
+  const comic = await client.getEntry(params.id);
   return {
     props: {
-      comic: data,
+      comic: comic.fields,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const req = await fetch(
-    'https://prymaze-comics.firebaseio.com/comics/comicId.json'
-  );
-  const { title } = await req.json();
+  const entries = await client.getEntries();
+
+  const paths = entries.items.map((entry) => ({
+    params: {
+      title: entry.fields.title.replace(/[#()\s:-]+/gi, '-'),
+      id: entry.sys.id,
+    },
+  }));
+  console.log(paths, 'paths');
   return {
-    paths: [...Array(6)].map((_, i) =>
-      `/comics/${title} ${++i}`.replace(/[\s():]+/g, '-')
-    ),
+    paths,
     fallback: false,
   };
 }

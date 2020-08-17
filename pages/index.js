@@ -1,9 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ultilStyles from '../styles/ultil.module.css';
+import { createClient } from 'contentful';
 
 // Components
 import Header from '../components/header';
+
+const client = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+});
 
 const Home = ({ comics }) => {
   return (
@@ -38,15 +44,30 @@ const Home = ({ comics }) => {
             </div>
             <div className='comics'>
               {comics.map((comic, i) => (
-                <div className='comic' key={comic.id}>
-                  <Link href='/comics/[slug]' as={comic.link}>
-                    <a data-comicid={comic.id}>
+                <div className='comic' key={comic.sys.id}>
+                  <Link
+                    href='/comics/[id]/[title]'
+                    as={`/comics/${comic.sys.id}/${comic.fields.title.replace(
+                      /[#()\s:-]+/gi,
+                      '-'
+                    )}`}
+                  >
+                    <a>
                       <div className='comic-image'>
-                        <img src={comic.imageUrl} alt='comic image' />
+                        <img
+                          src={`https:${comic.fields.cover.fields.file.url}`}
+                          alt={comic.title}
+                          title={comic.title}
+                        />
                       </div>
                       <div className='comic-content'>
-                        <h5 className='comic-title'>{comic.title}</h5>
-                        <p className='comic-publisher'>{comic.publisher}</p>
+                        <h5 className='comic-title'>{comic.fields.title}</h5>
+                        <span className='comic-publisher'>
+                          {comic.fields.publisher},{' '}
+                        </span>
+                        <span className='comic-publisher'>
+                          {comic.fields.writer}
+                        </span>
                       </div>
                     </a>
                   </Link>
@@ -62,21 +83,16 @@ const Home = ({ comics }) => {
 };
 
 export async function getStaticProps() {
-  const req = await fetch(
-    'https://prymaze-comics.firebaseio.com/mycomics.json'
-  );
-  const comicsRes = await req.json();
-  let comics = [];
-  for (const comicId in comicsRes) {
-    comics.push({
-      ...comicsRes[comicId],
-      id: comicId,
-      link: `/comics/${comicsRes[comicId].title.replace(/[\s():]+/g, '-')}`,
-    });
-  }
+  const fetchEntries = async () => {
+    const entries = await client.getEntries();
+    console.log(entries);
+    if (entries.items) return entries.items;
+    console.log(`Error getting Entries for ${contentType.name}.`);
+  };
+  const allComics = await fetchEntries();
   return {
     props: {
-      comics,
+      comics: allComics,
     },
   };
 }
