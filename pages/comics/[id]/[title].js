@@ -98,7 +98,6 @@ export async function getStaticPaths() {
       id: entry.sys.id,
     },
   }));
-  console.log(paths, 'paths');
   return {
     paths,
     fallback: false,
