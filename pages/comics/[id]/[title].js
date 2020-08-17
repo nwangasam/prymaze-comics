@@ -14,7 +14,7 @@ const Comic = ({ comic }) => {
     <>
       <Head>
         <title>{comic.title}</title>
-        <link rel='shortcut icon' href='/assets/comic-2.jpg' />
+        <link rel='shortcut icon' href={comic.cover.fields.file.url} />
       </Head>
       <Header />
       
