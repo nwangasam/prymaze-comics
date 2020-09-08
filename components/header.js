@@ -1,145 +1,36 @@
 import Link from 'next/link';
 
-const Header = () => (
-  <header>
-    <div className='container'>
-      <div
-        className='flex spaceBetween upper-nav'
-        style={{ padding: '.8rem 0' }}
-      >
-        <Link href='/'>
-          <a className='logo'>
-            <img
-              src='/assets/logo-white.svg'
-              alt='Prymaze logo'
-              style={{
-                width: '100%',
-              }}
-            />
-          </a>
-        </Link>
-        {/* <img
-              src='/assets/Search.svg'
-              alt='Search icon'
-              style={{ margin: '0 2rem 0 auto', transform: 'scale(.85)' }}
-            /> */}
-        <div className='search desktop-only' style={{ color: '#fff' }}>
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23.615'>
-            <g id='Search' opacity='.3'>
-              <path
-                id='Search-Path'
-                d='M21.746,23.615a1.249,1.249,0,0,1-.9-.382l-5.713-5.89A9.629,9.629,0,0,1,0,9.535a9.619,9.619,0,0,1,19.237,0,9.482,9.482,0,0,1-2.256,6.129l5.67,5.845a1.237,1.237,0,0,1-.035,1.759A1.251,1.251,0,0,1,21.746,23.615ZM9.618,2.488a7.047,7.047,0,1,0,7.109,7.047A7.086,7.086,0,0,0,9.618,2.488Z'
-                transform='translate(0 0)'
-                fill='currentColor'
-              />
-            </g>
-          </svg>
-          <input
-            style={{ color: '#f9f9f9' }}
-            type='text'
-            placeholder='Search comics'
-            className='search-input'
-          />
-        </div>
-        <div
-          className='user-profile'
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            color: '#f3f3f3',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-            letterSpacing: '1px',
-          }}
-        >
-          <Link href='/signin'>
-            <a className='user-profile-link' style={{ alignSelf: 'center' }}>
-              SIGN IN
+export default function Header() {
+  return (
+    <header className='header'>
+      <div className='container'>
+        <div className='header__inner'>
+          <Link href='/'>
+            <a className='Logo'>
+              <img src='/icons/Logo.svg' alt='Logo' />
             </a>
           </Link>
-          <span
-            style={{
-              display: 'inline-block',
-              margin: '0 1.2rem',
-              fontWeight: 'bold',
-              color: 'white',
-            }}
-          >
-            |
-          </span>
-          <Link href='/login'>
-            <a className='user-profile-link' style={{ alignSelf: 'center' }}>
-              JOIN
-            </a>
-          </Link>
+          <div className='header__nav'>
+            <Link href='/'>
+              <a className='header__links active'>Home</a>
+            </Link>
+            <Link href='/'>
+              <a className='header__links'>Sports</a>
+            </Link>
+            <Link href='/'>
+              <a className='header__links'>Comics</a>
+            </Link>
+          </div>
+          <div className='header__actions'>
+              <Link href='/'>
+                <a className='header__links'>Sign in</a>
+              </Link>
+              <Link href='/'>
+                <a className='header__links filled'>Sign up</a>
+              </Link>
+          </div>
         </div>
-        {/* <img src='/assets/hamburger.svg' alt='Hamburger icon' /> */}
       </div>
-    </div>
-    <div className='flex align spaceBetween lower-nav'>
-      <span className='hamburger menu-icon flex align center'>
-        <svg
-          id='hamburger'
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 20 16'
-        >
-          <path
-            id='Line'
-            d='M.625,2h18.75C19.72,2,20,1.552,20,1s-.28-1-.625-1H.625C.28,0,0,.448,0,1S.28,2,.625,2Z'
-            fill='#fff'
-          />
-          <path
-            id='Line-2'
-            data-name='Line'
-            d='M12.594,0H.406C.182,0,0,.448,0,1S.182,2,.406,2H12.594C12.818,2,13,1.552,13,1S12.818,0,12.594,0Z'
-            transform='translate(7 7)'
-            fill='#fff'
-          />
-          <path
-            id='Line-3'
-            data-name='Line'
-            d='M5.813,0H.187C.084,0,0,.448,0,1S.084,2,.187,2H5.813C5.916,2,6,1.552,6,1S5.916,0,5.813,0Z'
-            transform='translate(14 14)'
-            fill='#fff'
-          />
-        </svg>
-      </span>
-      <div className='search' style={{ color: '#fff' }}>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23.615'>
-          <g id='Search' opacity='.3'>
-            <path
-              id='Search-Path'
-              d='M21.746,23.615a1.249,1.249,0,0,1-.9-.382l-5.713-5.89A9.629,9.629,0,0,1,0,9.535a9.619,9.619,0,0,1,19.237,0,9.482,9.482,0,0,1-2.256,6.129l5.67,5.845a1.237,1.237,0,0,1-.035,1.759A1.251,1.251,0,0,1,21.746,23.615ZM9.618,2.488a7.047,7.047,0,1,0,7.109,7.047A7.086,7.086,0,0,0,9.618,2.488Z'
-              transform='translate(0 0)'
-              fill='currentColor'
-            />
-          </g>
-        </svg>
-        <input
-          style={{ color: '#f9f9f9' }}
-          type='text'
-          placeholder='Search comics'
-          className='search-input'
-        />
-      </div>
-      <span className='search-icon menu-icon flex align center'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='20'
-          viewBox='0 0 23 23.615'
-        >
-          <g id='Search'>
-            <path
-              id='Search-Path'
-              d='M21.746,23.615a1.249,1.249,0,0,1-.9-.382l-5.713-5.89A9.629,9.629,0,0,1,0,9.535a9.619,9.619,0,0,1,19.237,0,9.482,9.482,0,0,1-2.256,6.129l5.67,5.845a1.237,1.237,0,0,1-.035,1.759A1.251,1.251,0,0,1,21.746,23.615ZM9.618,2.488a7.047,7.047,0,1,0,7.109,7.047A7.086,7.086,0,0,0,9.618,2.488Z'
-              transform='translate(0 0)'
-              fill='#ffffff'
-            />
-          </g>
-        </svg>
-      </span>
-    </div>
-  </header>
-);
-
-export default Header;
+    </header>
+  );
+}

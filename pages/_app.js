@@ -1,9 +1,5 @@
-import '../styles/globals.css';
-import '../styles/components/comics.css';
-import '../styles/components/banner.css';
+import '../styles/app.scss';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
-
-export default MyApp;

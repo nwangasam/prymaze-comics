@@ -1,0 +1,63 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  // background: $dark;
+  overflow: hidden;
+  z-index: 10;
+  border-bottom: 1.4px solid rgba(white, 0.06);
+  &::before {
+    content: '';
+    @extend .cover-parent;
+    position: absolute;
+    z-index: -1;
+    // background: red;
+    -webkit-backdrop-filter: saturate(80%) blur(10px);
+    background: rgba($dark, 0.6);
+    backdrop-filter: saturate(80%) blur(10px);
+  }
+  .Logo {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__inner {
+    @extend .flex-row;
+    font-size: 1.4rem;
+    height: $headerHeight;
+  }
+
+  &__nav {
+    @extend .flex-row;
+    text-transform: uppercase;
+    height: 100%;
+    align-self: stretch;
+  }
+  &__links {
+    font-family: $font-family-condensed;
+    display: flex;
+    margin: 0 2rem;
+    color: $light;
+    height: 100%;
+    letter-spacing: 1px;
+    align-items: center;
+
+    &:hover,
+    &:active,
+    &.active {
+      color: $yellow;
+    }
+    &.filled {
+      @extend .filled-btn;
+    }
+  }
+  &__actions {
+    @extend .flex-row;
+    text-transform: uppercase;
+    color: $light;
+    & > *:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+}
