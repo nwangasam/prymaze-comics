@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function ComicGenres() {
   return (
     <section className='comic-genres'>
-      <div className='container'>
+      <div className='container gray-bg'>
         <h2 className='section-title'>COMICS BY GENRES</h2>
         <div className='genres'>
           {[...Array(5)].map((_, i) => (

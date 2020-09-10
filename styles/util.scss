@@ -24,6 +24,11 @@
   padding: 0 1.4rem;
   position: relative;
 }
+.gray-bg {
+  background: $dark;
+  padding: 2rem 1.5rem;  
+  width: 100%;
+}
 @media (min-width: 1320px) {
   .container.fluid.with-arrows {
     max-width: 1320px;
@@ -61,7 +66,7 @@
   }
 }
 .section {
-  padding: 5rem 0;
+  padding: 2.5rem 0 0;
   // border-bottom: 1px solid rgba($light, .1);
 }
 .section-title {

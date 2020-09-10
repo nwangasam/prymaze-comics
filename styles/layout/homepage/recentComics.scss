@@ -1,12 +1,12 @@
 .recent-comics {
   @extend .section;
-  background: $dark;
+  background: $black;
 }
 .comics {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 1.5rem;
-  margin: 6rem 0 0;
+  margin-top: 2rem;
 }
 .comic {
     padding-bottom: 2rem;

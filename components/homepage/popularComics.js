@@ -1,7 +1,7 @@
 export default function PopularComics() {
   return (
     <section className='popular-comics'>
-      <div className='container'>
+      <div className='container gray-bg'>
         <h2 className='section-title'>MOST POPULAR COMICS</h2>
         <div className='comics'>
           {[...Array(12)].map((_, i) => (

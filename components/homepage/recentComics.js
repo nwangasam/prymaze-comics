@@ -1,7 +1,7 @@
 export default function RecentComics() {
   return (
     <section className='recent-comics'>
-      <div className='container'>
+      <div className='container gray-bg'>
         <h2 className='section-title'>NEW COMIC RELEASES</h2>
         <div className='comics'>
           {[...Array(6)].map((_, i) => (
