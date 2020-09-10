@@ -10,7 +10,26 @@
 }
 .container {
   max-width: 1140px;
+  flex: 1;
   margin: 0 auto;
+}
+.container.fluid {
+  max-width: 100%;
+}
+.container.fluid.with-arrows {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.4rem;
+  position: relative;
+}
+@media (min-width: 1320px) {
+  .container.fluid.with-arrows {
+    max-width: 1320px;
+    margin: 0 auto;
+    flex: 1;
+  }
 }
 .filled-btn {
   background: $yellow;
@@ -19,6 +38,36 @@
   padding: 1rem 1.4rem;
 
   &:hover {
-    filter: brightness(.95);
+    filter: brightness(0.95);
   }
+}
+.arrow {
+  cursor: pointer;
+  width: 3.2rem;
+  opacity: 0.45;
+  &.active {
+    opacity: 1;
+  }
+  &.lg {
+    width: 5rem;
+  }
+  &.right {
+    svg {
+      transform: rotateZ(180deg);
+    }
+  }
+  svg {
+    width: inherit;
+  }
+}
+.section {
+  padding: 5rem 0;
+  // border-bottom: 1px solid rgba($light, .1);
+}
+.section-title {
+  font-size: 2.2rem;
+  color: $yellow;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: $font-family-condensed;
 }

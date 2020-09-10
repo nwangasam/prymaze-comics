@@ -23,7 +23,7 @@ export default function Banner() {
                         transform='translate(434 748)'
                         fill='none'
                         stroke='#5578ab'
-                        stroke-width='4'
+                        strokeWidth='4'
                       >
                         <circle cx='40' cy='40' r='40' stroke='none' />
                         <circle cx='40' cy='40' r='38' fill='none' />
@@ -34,14 +34,14 @@ export default function Banner() {
                           transform='translate(338.596 43.5)'
                           fill='none'
                           stroke='#5578ab'
-                          stroke-width='3'
+                          strokeWidth='3'
                         />
                         <path
                           d='M602.151,806c-3.814.088-34.1,0-34.1,0'
                           transform='translate(-4 19.699)'
                           fill='none'
                           stroke='#5578ab'
-                          stroke-width='3'
+                          strokeWidth='3'
                         />
                       </g>
                     </g>
