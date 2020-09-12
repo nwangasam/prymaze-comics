@@ -34,20 +34,31 @@ function renderCarouselPagination() {
   return <div />;
 }
 
-export default function RecentNews() {
+export default function RecentNews({ posts }) {
   let breakPoints = [
-    { width: 1, itemsToShow: 1 },
+    { width: 1, itemsToShow: 1, itemsToScroll: 1 },
     { width: 320, itemsToShow: 2, itemsToScroll: 2 },
     { width: 640, itemsToShow: 3, itemsToScroll: 3 },
     { width: 768, itemsToShow: 4, itemsToScroll: 4 },
     { width: 1024, itemsToShow: 5 },
   ];
+
+  const parsedPosts = posts.map((postFields) => {
+    return {
+      id: postFields.sys.id,
+      image: postFields.fields.image.fields.file.url,
+      writer: postFields.fields.writer,
+      title: postFields.fields.title,
+      published: new Date(postFields.sys.createdAt).toDateString()
+    }
+  });
+
   return (
     <section className='recent-news'>
       <div className='container'>
         <div className='flex-row'>
           <h2 className='section-title'>Recent sports news</h2>
-          <Link href='/'>
+          <Link href='/news'>
             <a className='see-all'>See all</a>
           </Link>
         </div>
@@ -62,15 +73,13 @@ export default function RecentNews() {
         renderArrow={renderCarouselArrows}
         renderPagination={renderCarouselPagination}
       >
-        {[...Array(15)].map((_, i) => (
-          <div className='news' key={i}>
+        {parsedPosts.map((post, i) => (
+          <div className='news' key={post.id}>
             <div className='news__image'>
-              {/* <img src='/images/comic-1.jpg' alt='News Cover Image' /> */}
+              <img src={post.image} alt={post.title} />
             </div>
-            <h3 className='news__title'>
-              Recent march between Bayern and Bercelona
-            </h3>
-            <div className='news__date'>August 19, 2020</div>
+            <h3 className='news__title'>{post.title}</h3>
+            <div className='news__date'>{post.published}</div>
           </div>
         ))}
       </Carousel>

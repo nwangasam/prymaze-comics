@@ -1,17 +1,32 @@
-export default function RecentComics() {
+const RecentComics = ({ comics }) => {
+  const parsedComics = comics.map((postField) => ({
+    id: postField.sys.id,
+    cover: postField.fields.cover.fields.file.url,
+    publisher: postField.fields.publisher,
+    summary: postField.fields.summary,
+    title: postField.fields.title,
+    writer: postField.fields.writer,
+  }))
+
   return (
     <section className='recent-comics'>
       <div className='container gray-bg'>
         <h2 className='section-title'>NEW COMIC RELEASES</h2>
         <div className='comics'>
-          {[...Array(6)].map((_, i) => (
-            <div className='comic' key={i}>
+          {parsedComics.map((comic) => (
+            <div className='comic' key={comic.id}>
               <div className='comic__image'>
-                <img src='/images/comic-1.jpg' alt='comic cover photo' />
+                <img
+                  src={`https:${comic.cover}`}
+                  alt={comic.title}
+                />
               </div>
-              <h3 className='comic__title'>Batman: The Dark Knight Returns Frank Miller</h3>
+              <h3 className='comic__title'>{comic.title}</h3>
               <p className='comic__meta'>
-                <span className='comic__author'>DC Comics</span>&nbsp;&mdash;&nbsp;<span className='comic__published-year'>2020</span>
+                <span className='comic__author'>{comic.publisher}</span>,{' '}
+                <span className='comic__published-year'>
+                  {comic.writer}
+                </span>
               </p>
             </div>
           ))}
@@ -20,3 +35,5 @@ export default function RecentComics() {
     </section>
   );
 }
+
+export default RecentComics;
