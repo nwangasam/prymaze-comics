@@ -65,7 +65,8 @@ export async function getStaticProps() {
   try {
     comics = await fetchEntries('comic');
   } catch (err) {
-    console.error(err);
+    comics = null;
+    console.error(error);
   }
   return {
     props: { comics },

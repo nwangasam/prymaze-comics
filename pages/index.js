@@ -48,6 +48,8 @@ export async function getStaticProps() {
     comics = await fetchEntries('comic');
     posts = await fetchEntries('post');
   } catch (err) {
+    posts = null;
+    comics = null;
     console.error(err);
   }
   return {

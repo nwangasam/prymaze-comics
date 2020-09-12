@@ -62,6 +62,7 @@ export async function getStaticProps() {
   try {
     posts = await fetchEntries('post');
   } catch (err) {
+      posts = null;
     console.error(err);
   }
   return {
