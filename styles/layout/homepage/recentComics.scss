@@ -4,9 +4,10 @@
 }
 .comics {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   grid-gap: 1.5rem;
   margin-top: 2rem;
+  @extend .responsive-grid;
+
 }
 .comic {
     padding-bottom: 2rem;

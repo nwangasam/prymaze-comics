@@ -12,6 +12,7 @@
   max-width: 1140px;
   flex: 1;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 .container.fluid {
   max-width: 100%;
@@ -26,7 +27,7 @@
 }
 .gray-bg {
   background: $dark;
-  padding: 2rem 1.5rem;  
+  padding: 2rem 1.5rem;
   width: 100%;
 }
 @media (min-width: 1320px) {
@@ -46,10 +47,18 @@
     filter: brightness(0.95);
   }
 }
+.rec-carousel {
+  position: relative;
+}
 .arrow {
+  display: flex;
   cursor: pointer;
   width: 3.2rem;
-  opacity: 0.45;
+  opacity: 0;
+  transition: 0.3s opacity ease;
+  position: absolute;
+  height: 100%;
+  z-index: 1;
   &.active {
     opacity: 1;
   }
@@ -57,6 +66,7 @@
     width: 5rem;
   }
   &.right {
+    right: 0;
     svg {
       transform: rotateZ(180deg);
     }
@@ -75,4 +85,13 @@
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-family: $font-family-condensed;
+}
+.responsive-grid {
+  grid-template-columns: repeat(2, 1fr);
+  @include media('>640px') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media('>tablet') {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

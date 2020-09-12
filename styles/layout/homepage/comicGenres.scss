@@ -7,9 +7,9 @@
   &s {
     display: grid;
     max-width: 100%;
-    grid-template-columns: repeat(5, 1fr);
     grid-gap: 2rem;
     margin-top: 2rem;
+    @extend .responsive-grid;
   }
 
   &__image {

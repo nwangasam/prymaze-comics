@@ -1,5 +1,8 @@
-@import './base';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
 @import './variables';
+@import './breakpoints';
+@import './base';
 @import './util';
 
 /* Layout Styles */
@@ -12,6 +15,6 @@
 @import './layout/homepage/comicGenres';
 @import './layout/homepage/showcase';
 
-/* Modules Styles */ 
+/* Modules Styles */
 @import './modules/button';
 @import './modules/comics';

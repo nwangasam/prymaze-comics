@@ -1,24 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    -webkit-font-smoothing: antialiased;
-    font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+  font-size: 10px;
 }
 
 body {
-    font-family: "Sofia Pro", 'sans-serif';
-    font-weight: 400;
-    box-sizing: border-box;
+  font-family: 'Sofia Pro', 'sans-serif';
+  font-weight: 400;
+  box-sizing: border-box;
+  background: $black;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }

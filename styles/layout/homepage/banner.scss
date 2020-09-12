@@ -9,7 +9,6 @@
   &-bg {
     width: 100%;
     height: 100%;
-    background-image: url("/images/banner-bg-hi.png");
     position: absolute;
     background-size: cover;
     z-index: 0;
@@ -17,31 +16,43 @@
     background-repeat: no-repeat;
     background-position: 18vw -5vh;
     pointer-events: none;
+    background-image: url('/images/banner-bg-low.png');
+    // display: none;
+    @include media('>tablet') {
+      background-image: url('/images/banner-bg-md.png');
+    }
   }
-  
-  
+
   &__inner {
     @extend .cover-parent;
   }
   &__half {
-    width: 50%;
     height: 100%;
     display: flex;
+    @include media ('>900px') {
+      width: 50%;
+    }
   }
   &__content {
     max-width: 450px;
-    margin: auto;
+    padding: 2rem;
+    margin: 0 auto;
     align-self: center;
+    position: relative;
 
     h1 {
-      font-size: calc(2rem + 1.8vw);
+      font-size: calc(2.6rem + 1.8vw);
       text-transform: uppercase;
-      color: $headerTitleColor;
-      font-family: $font-family-condensed;
+      color: #82fffb;
+      font-family: 'Oswald', 'sans-serif';
       line-height: 1.15;
       letter-spacing: 1px;
       font-weight: 500;
-      margin-bottom: 4.2rem;
+      margin-bottom: 0.54em;
+      @include media('>tablet') {
+        font-size: calc(2rem + 1.8vw);
+        margin-bottom: 1em;
+      }
     }
   }
   &__cta {
@@ -60,7 +71,7 @@
     span {
       width: 5.4rem;
       margin-left: 1.2rem;
-      transition: .3s ease;
+      transition: 0.3s ease;
 
       svg {
         width: inherit;

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className='site-footer'>
-      <div className='container'>THE FOOTER CONTENT GOES HERE</div>
+      <div className='container'>All rights reserved &copy; 2020, Prymaze.</div>
     </footer>
   );
 }
