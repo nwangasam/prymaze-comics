@@ -33,7 +33,7 @@ const News = ({ posts }) => {
       <Header open={open} setOpen={setOpen} link='/news' />
       <div className='pz-pg news-pg'>
         <div className='container'>
-            <h2 className='pz-pg-title'>All News</h2>
+          <h2 className='pz-pg-title'>All News</h2>
           <div className='responsive-grid'>
             {parsedPosts.map((post) => (
               <div className='news' key={post.id}>
@@ -58,7 +58,12 @@ export async function getStaticProps() {
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
-  const posts = await fetchEntries('post');
+  let posts;
+  try {
+    posts = await fetchEntries('post');
+  } catch (err) {
+    console.error(err);
+  }
   return {
     props: { posts },
   };

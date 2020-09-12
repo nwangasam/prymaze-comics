@@ -61,7 +61,12 @@ export async function getStaticProps() {
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
-  const comics = await fetchEntries('comic');
+  let comics;
+  try {
+    comics = await fetchEntries('comic');
+  } catch (err) {
+    console.error(err);
+  }
   return {
     props: { comics },
   };

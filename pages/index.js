@@ -18,14 +18,14 @@ const client = createClient({
 
 const HomePage = ({ comics, posts }) => {
   const [open, setOpen] = useState(false);
-  
+
   return (
     <>
       <Head>
         <title>Prymaze - World of Sports and Comics content.</title>
         <link rel='shortcut icon' href='/icons/favicon.png' />
       </Head>
-      <Header open={open} setOpen={setOpen} link="/" />
+      <Header open={open} setOpen={setOpen} link='/' />
       <Banner />
       <RecentNews posts={posts} />
       <RecentComics comics={comics} />
@@ -42,8 +42,14 @@ export async function getStaticProps() {
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
-  const comics = await fetchEntries('comic');
-  const posts = await fetchEntries('post');
+  let comics;
+  let posts;
+  try {
+    comics = await fetchEntries('comic');
+    posts = await fetchEntries('post');
+  } catch (err) {
+    console.error(err);
+  }
   return {
     props: { comics, posts },
   };
