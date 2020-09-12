@@ -7,14 +7,18 @@
 
 /* Layout Styles */
 @import './layout/header';
+@import './layout/mobileNav';
 @import './layout/footer';
 @import './layout/homepage/banner';
 @import './layout/homepage/recentNews';
 @import './layout/homepage/recentComics';
 @import './layout/homepage/popularComics';
 @import './layout/homepage/comicGenres';
-@import './layout/homepage/showcase';
 
+@import './layout/homepage/showcase';
 /* Modules Styles */
 @import './modules/button';
 @import './modules/comics';
+
+/* Page Styles - Comics Page */
+@import './layout/comics/comics'

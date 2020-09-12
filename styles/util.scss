@@ -79,6 +79,9 @@
   padding: 2.5rem 0 0;
   // border-bottom: 1px solid rgba($light, .1);
 }
+.pt-header {
+  padding-top: $headerHeight;
+}
 .section-title {
   font-size: 2.2rem;
   color: $yellow;

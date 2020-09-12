@@ -8,6 +8,9 @@ html {
   -webkit-font-smoothing: antialiased;
   font-size: 10px;
 }
+body, #__next {
+  min-height: 100vh;
+}
 
 body {
   font-family: 'Sofia Pro', 'sans-serif';

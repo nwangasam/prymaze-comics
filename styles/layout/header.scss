@@ -17,11 +17,31 @@
     backdrop-filter: saturate(80%) blur(10px);
   }
   .Logo {
+    max-width: 96px;
+    @include media('>phone') {
+      max-width: 100px
+    }
+    @include media('>tablet') {
+      max-width: 120px
+    }
     img {
       max-width: 100%;
     }
   }
 
+  .hamburger-menu {
+    display: inline-flex;
+    opacity: .65;
+    @extend .flex !optional;
+    margin-left: auto;
+    svg {
+      width: 4rem;
+    }
+    @include media('>tablet') {
+      display: none;
+    }
+  }
+  
   &__inner {
     @extend .flex-row;
     font-size: 1.4rem;
@@ -61,9 +81,12 @@
     }
   }
   &__actions {
-    @extend .flex-row;
     text-transform: uppercase;
     color: $light;
-    
+    @extend .flex-row !optional;
+    display: none;
+    @include media('>tablet') {
+      display: flex;
+    }
   }
 }

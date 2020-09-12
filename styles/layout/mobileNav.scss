@@ -1,0 +1,35 @@
+.mobile-nav {
+    padding-top: $headerHeight;
+    padding-bottom: 2rem;
+    position: absolute;
+    width: 100%;
+    background: #000;
+    min-height: 200px;
+    top: 0;
+    z-index: 9;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: 0.5s transform ease-in-out;
+    box-shadow: 0 8px 16px rgba($light, .15);
+
+    @include media('>tablet') {
+        display: none;
+    }
+
+  &__links {
+      display: block;
+      color: $light; 
+      font-size: 1.6rem;
+      padding: 1.6rem;
+      text-transform: uppercase;
+      font-family: $font-family-condensed;
+      letter-spacing: 1px;
+      &.active, &:active {
+          color: $yellow;
+          background: $dark;
+      }
+  }
+  &.show {
+      transform: translateY(0);
+  }
+}

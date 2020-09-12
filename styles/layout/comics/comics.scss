@@ -1,0 +1,17 @@
+.pz-pg {
+  min-height: 100vh;
+  margin-top: 10rem;
+  &-title {
+      font-size: 2.5rem;
+      color: $yellow;
+      text-align: center;
+      letter-spacing: 1.4px;
+      margin: 1.5rem 0 3.2rem;
+  }
+  
+  .responsive-grid {
+      display: grid;
+      grid-gap: 2.4rem;
+  }
+}
+

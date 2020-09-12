@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useState } from 'react';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -16,13 +17,15 @@ const client = createClient({
 });
 
 const HomePage = ({ comics, posts }) => {
+  const [open, setOpen] = useState(false);
+  
   return (
     <>
       <Head>
         <title>Prymaze - World of Sports and Comics content.</title>
         <link rel='shortcut icon' href='/icons/favicon.png' />
       </Head>
-      <Header />
+      <Header open={open} setOpen={setOpen} link="/" />
       <Banner />
       <RecentNews posts={posts} />
       <RecentComics comics={comics} />
