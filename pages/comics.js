@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
-import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 import { createClient } from 'contentful';
 
@@ -66,7 +66,7 @@ export async function getStaticProps() {
     comics = await fetchEntries('comic');
   } catch (err) {
     comics = null;
-    console.error(error);
+    console.error(err);
   }
   return {
     props: { comics },
