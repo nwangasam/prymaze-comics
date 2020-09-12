@@ -38,7 +38,7 @@ const HomePage = ({ comics, posts }) => {
 
 export async function getStaticProps() {
   const fetchEntries = async (content_type) => {
-    const entries = await client.getEntries({ content_type });
+    const entries = await client.getEntries({ content_type: content_type });
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
@@ -48,8 +48,6 @@ export async function getStaticProps() {
     comics = await fetchEntries('comic');
     posts = await fetchEntries('post');
   } catch (err) {
-    posts = null;
-    comics = null;
     console.error(err);
   }
   return {

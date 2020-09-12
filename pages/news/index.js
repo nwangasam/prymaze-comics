@@ -53,16 +53,15 @@ const News = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const fetchEntries = async (content_type) => {
-    const entries = await client.getEntries({ content_type });
+  const fetchEntries = async () => {
+    const entries = await client.getEntries({ content_type: 'post' });
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
   let posts;
   try {
-    posts = await fetchEntries('post');
+    posts = await fetchEntries();
   } catch (err) {
-      posts = null;
     console.error(err);
   }
   return {

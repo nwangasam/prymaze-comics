@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 import { createClient } from 'contentful';
 
@@ -56,16 +56,15 @@ const Comics = ({ comics }) => {
 };
 
 export async function getStaticProps() {
-  const fetchEntries = async (content_type) => {
-    const entries = await client.getEntries({ content_type });
+  const fetchEntries = async () => {
+    const entries = await client.getEntries({ content_type: 'comic' });
     if (entries.items) return entries.items;
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
   let comics;
   try {
-    comics = await fetchEntries('comic');
+    comics = await fetchEntries();
   } catch (err) {
-    comics = null;
     console.error(err);
   }
   return {
