@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "contentful": "^7.14.6",
+    "cssnano-preset-simple": "^1.2.0",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -16,7 +17,8 @@
     "sass": "^1.26.10",
     "styled-components": "^5.2.0"
   },
-    "resolutions": {
+  "resolutions": {
+    "cssnano-preset-simple": "1.1.1",
     "webpack": "4.43"
   }
 }

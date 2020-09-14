@@ -2,9 +2,26 @@ import Link from 'next/link';
 
 const genresTypes = [
   {
-    id: ''
+    id: 'action',
+    label: 'Action',
+    image: '/images/action.jpeg',
+  },
+  {
+    id: 'supernatural',
+    label: 'Supernatural',
+    image: '/images/supernatural.jpeg',
+  },
+  {
+    id: 'superhero',
+    label: 'Superhero',
+    image: '/images/superhero.jpeg',
+  },
+  {
+    id: 'crime',
+    label: 'Crime',
+    image: '/images/crime.jpeg',
   }
-]
+];
 
 export default function ComicGenres() {
   return (
@@ -13,13 +30,18 @@ export default function ComicGenres() {
         <section className='genre-shoveler'>
           <h2 className='section-title'>COMICS BY GENRES</h2>
           <div className='genre-shoveler__grid'>
-            {[...Array(5)].map((_, i) => (
-              <Link href='/' key={i}>
+            {genresTypes.map((genre) => (
+              <Link href='/' key={genre.id}>
                 <div className='genre'>
                   <div className='genre__image'>
-                    <img src='' alt='' />
+                    <img
+                      src={genre.image}
+                      alt={`${genre.label} comics cover`}
+                    />
                   </div>
-                  <h4 className='genre__name'>Superhero</h4>
+                  <div className='genre__content'>
+                    <h4 className='genre__name'>{genre.label}</h4>
+                  </div>
                 </div>
               </Link>
             ))}

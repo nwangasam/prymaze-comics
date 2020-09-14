@@ -3,6 +3,9 @@
   @include media('<360px') {
     grid-template-columns: 1fr;
   }
+  .comics {
+    padding-bottom: 1.8rem;
+  }
 }
 
 .pz-pg {

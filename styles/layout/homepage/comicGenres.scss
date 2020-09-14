@@ -2,10 +2,10 @@
   &s {
     margin-top: 2rem;
   }
+  min-width: auto;
   width: 100%;
-  background: $yellow;
-  column-count: 2;
-  column-width: auto;
+  background: rgb(26, 26, 26);
+  grid-column: span 2;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   display: inline-flex;
@@ -15,15 +15,25 @@
   margin-bottom: 0.25rem;
   border-radius: 0 0 4px 4px;
 
-  @include media('>480') {
-    width: calc(33.33333% - 0.83333 * 0.75rem - 0.16667rem);
-    min-width: calc(33.33333% - 0.83333 * 0.75rem - 0.16667rem);
-    margin-right: 0.75rem;
+  &__image {
+    overflow: hidden;
+    height: 120%;
+    margin-bottom: 1rem;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
-  @include media('>600px') {
-    width: calc(25% - 0.875 * 0.75rem - 0.1875rem);
-    min-width: calc(25% - 0.875 * 0.75rem - 0.1875rem);
-    margin-right: 0.75rem;
+  &__content {
+    padding: 0 1.8rem;
+  }
+  &__name {
+    color: $light;
+    font-size: 1.28rem;
+    font-family: $font-family-condensed;
+    letter-spacing: 1.24px;
+    text-transform: uppercase;
   }
   &-shoveler {
     position: relative;
@@ -32,23 +42,36 @@
     overscroll-behavior-x: contain;
 
     &__grid {
+      margin-top: 2rem;
+      flex-wrap: nowrap;
       overflow: auto;
       scroll-behavior: smooth;
       display: grid;
-      grid-gap: 0.5rem;
-      grid-template-columns: repeat(16, calc(25% - 0.75 * 0.5rem - 0.5rem));
+      grid-gap: 0.7rem;
+      grid-template-columns: repeat(24, calc(25% - 0.75 * 0.5rem - 0.5rem));
+      grid-auto-rows: 320px;
       @include media('>480px') {
+        grid-auto-rows: 320px;
         grid-gap: 0.75rem;
         grid-template-columns: repeat(
-          16,
+          24,
           calc(16.66667% - 0.83333 * 0.75rem - 0.5rem)
-        );
-      }
-      @include media('>=600px') {
-        grid-gap: 0.75rem;
+          );
+        }
+        @include media('>=600px') {
+          grid-auto-rows: 360px;
+          grid-gap: 0.75rem;
+          grid-template-columns: repeat(
+            24,
+            calc(12.5% - 0.875 * 0.75rem - 0.375rem)
+            );
+          }
+          @include media('>=desktop') {
+            grid-auto-rows: 380px;
+            grid-gap: 1rem;
         grid-template-columns: repeat(
-          16,
-          calc(12.5% - 0.875 * 0.75rem - 0.375rem)
+          24,
+          calc(8.33333% - 0.91667 * 1rem - 0rem)
         );
       }
     }
