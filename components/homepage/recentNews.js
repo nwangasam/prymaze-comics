@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Carousel, { consts } from 'react-elastic-carousel';
 import { useRouter } from 'next/router';
 
+import LazyImage from '../LazyImage';
+
 function renderCarouselArrows({ type, onClick, isEdge }) {
   let direction = type !== consts.PREV ? 'right' : '';
   return (
@@ -98,7 +100,11 @@ export default function RecentNews({ posts }) {
         {parsedPosts.map((post, i) => (
           <div className='news' key={post.id}>
             <div className='news__image'>
-              <img src={post.image} alt={post.title} />
+              {/* <img src={post.image} alt={post.title} /> */}
+              <LazyImage
+                alt={post.title}
+                src={post.image}
+               />
             </div>
             <h3 className='news__title'>{truncate(post.title)}</h3>
             <div className='news__date'>{post.published}</div>

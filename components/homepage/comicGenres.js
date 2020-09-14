@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LazyImage from '../LazyImage';
 
 const genresTypes = [
   {
@@ -20,7 +21,7 @@ const genresTypes = [
     id: 'crime',
     label: 'Crime',
     image: '/images/crime.jpeg',
-  }
+  },
 ];
 
 export default function ComicGenres() {
@@ -34,7 +35,7 @@ export default function ComicGenres() {
               <Link href='/' key={genre.id}>
                 <div className='genre'>
                   <div className='genre__image'>
-                    <img
+                    <LazyImage
                       src={genre.image}
                       alt={`${genre.label} comics cover`}
                     />
