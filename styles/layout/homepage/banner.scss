@@ -12,14 +12,15 @@
     position: absolute;
     background-size: cover;
     z-index: 0;
-    transform: scale(1.24);
+    transform: scale(1.2);
     background-repeat: no-repeat;
-    background-position: 18vw -5vh;
+    background-position: -31vh 38vh;
     pointer-events: none;
-    background-image: url('/images/banner-bg-low.png');
-    // display: none;
-    @include media('>tablet') {
-      background-image: url('/images/banner-bg-md.png');
+    background-image: url(/images/banner-bg-md.png);
+    @include media('>579px') {
+      width: 100%;
+      transform: scale(1.24);
+      background-position: 18vw -5vh;
     }
   }
 
@@ -29,16 +30,21 @@
   &__half {
     height: 100%;
     display: flex;
-    @include media ('>900px') {
+    @include media('>900px') {
       width: 50%;
     }
   }
   &__content {
     max-width: 450px;
     padding: 2rem;
-    margin: 0 auto;
-    align-self: center;
     position: relative;
+    margin: 12rem auto;
+    align-self: flex-start;
+
+    @include media('>579px') {
+      margin: 0 auto;
+      align-self: center;
+    }
 
     h1 {
       font-size: calc(2.6rem + 1.8vw);
@@ -69,9 +75,13 @@
       transform: translateX(1rem);
     }
     span {
-      width: 5.4rem;
+      width: 4.8rem;
       margin-left: 1.2rem;
       transition: 0.3s ease;
+
+      @include media('>tablet') {
+        width: 5.4rem;
+      }
 
       svg {
         width: inherit;

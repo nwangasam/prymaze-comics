@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Carousel, { consts } from 'react-elastic-carousel';
+import { useRouter } from 'next/router';
 
 function renderCarouselArrows({ type, onClick, isEdge }) {
   let direction = type !== consts.PREV ? 'right' : '';
@@ -16,7 +17,7 @@ function renderCarouselArrows({ type, onClick, isEdge }) {
               cy='49'
               r='49'
               transform='translate(-0.001)'
-              fill='#3d3b3a'
+              fill='currentColor'
             />
           </g>
           <path
@@ -34,14 +35,35 @@ function renderCarouselPagination() {
   return <div />;
 }
 
+function truncate(input, limit=45) {
+  if (typeof input !== 'string' || input.length <= limit) return input;
+  const str2Arr = input.split(' ');
+
+  let truncatedWordArr = []
+  
+  str2Arr.reduce((total, curr) => {
+    if (total + curr.length < limit) {
+      truncatedWordArr.push(curr);
+      return total + curr.length;
+    }
+  }, 0);
+  return `${truncatedWordArr.join(' ')}...`;
+}
+
+let breakPoints = [
+  { width: 1, itemsToShow: 1, itemsToScroll: 1 },
+  { width: 320, itemsToShow: 2, itemsToScroll: 2 },
+  { width: 640, itemsToShow: 3, itemsToScroll: 3 },
+  { width: 768, itemsToShow: 4, itemsToScroll: 4 },
+  { width: 1024, itemsToShow: 5 },
+];
+
 export default function RecentNews({ posts }) {
-  let breakPoints = [
-    { width: 1, itemsToShow: 1, itemsToScroll: 1 },
-    { width: 320, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 640, itemsToShow: 3, itemsToScroll: 3 },
-    { width: 768, itemsToShow: 4, itemsToScroll: 4 },
-    { width: 1024, itemsToShow: 5 },
-  ];
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return  <h2 className='section-title'>Loading site...</h2>
+  }
 
   const parsedPosts = posts.map((postFields) => {
     return {
@@ -52,17 +74,17 @@ export default function RecentNews({ posts }) {
       published: new Date(postFields.sys.createdAt).toDateString()
     }
   });
-
+  
   return (
     <section className='recent-news'>
-      <div className='container'>
-        <div className='flex-row'>
+      <div className='container gray-bg'>
+        <div className='flex-row mb-2'>
           <h2 className='section-title'>Recent sports news</h2>
           <Link href='/news'>
             <a className='see-all'>See all</a>
           </Link>
         </div>
-      </div>
+     
 
       <Carousel
         itemsToShow={4}
@@ -78,11 +100,12 @@ export default function RecentNews({ posts }) {
             <div className='news__image'>
               <img src={post.image} alt={post.title} />
             </div>
-            <h3 className='news__title'>{post.title}</h3>
+            <h3 className='news__title'>{truncate(post.title)}</h3>
             <div className='news__date'>{post.published}</div>
           </div>
         ))}
       </Carousel>
+      </div>
     </section>
   );
 }

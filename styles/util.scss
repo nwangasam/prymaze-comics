@@ -59,6 +59,12 @@
   position: absolute;
   height: 100%;
   z-index: 1;
+  svg {
+    circle {
+      opacity: .65;
+      fill: $blue;
+    }
+  }
   &.active {
     opacity: 1;
   }
@@ -82,12 +88,18 @@
 .pt-header {
   padding-top: $headerHeight;
 }
+.mb-2 {
+  margin-bottom: 2rem;
+}
 .section-title {
   font-size: 2.2rem;
   color: $yellow;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-family: $font-family-condensed;
+  @include media('<360px') {
+    font-size: 1.875rem;
+  }
 }
 .responsive-grid {
   grid-template-columns: repeat(2, 1fr);
@@ -95,6 +107,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
   @include media('>tablet') {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }

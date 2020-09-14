@@ -11,6 +11,22 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
+function truncate(input, limit = 45) {
+  if (typeof input !== 'string' || input.length <= limit) return input;
+  const str2Arr = input.split(' ');
+
+  let truncatedWordArr = []
+  
+  str2Arr.reduce((total, curr) => {
+    if (total + curr.length < limit) {
+      truncatedWordArr.push(curr);
+      return total + curr.length;
+    }
+  }, 0);
+  return `${truncatedWordArr.join(' ')}...`;
+}
+
+
 const News = ({ posts }) => {
   const [open, setOpen] = useState(false);
   const parsedPosts = posts.map((postFields) => {
@@ -40,7 +56,7 @@ const News = ({ posts }) => {
                 <div className='news__image'>
                   <img src={post.image} alt={post.title} />
                 </div>
-                <h3 className='news__title'>{post.title}</h3>
+                <h3 className='news__title'>{truncate(post.title)}</h3>
                 <div className='news__date'>{post.published}</div>
               </div>
             ))}

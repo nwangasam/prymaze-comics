@@ -10,6 +10,7 @@ import RecentComics from '../components/homepage/recentComics';
 import ComicGenres from '../components/homepage/comicGenres';
 
 import { createClient } from 'contentful';
+import { useRouter } from 'next/router';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -18,12 +19,21 @@ const client = createClient({
 
 const HomePage = ({ comics, posts }) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h2 className='section-title'>Loading site...</h2>;
+  }
 
   return (
     <>
       <Head>
         <title>Prymaze - World of Sports and Comics content.</title>
         <link rel='shortcut icon' href='/icons/favicon.png' />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap'
+          rel='stylesheet'
+        ></link>
       </Head>
       <Header open={open} setOpen={setOpen} link='/' />
       <Banner />
@@ -52,6 +62,13 @@ export async function getStaticProps() {
   }
   return {
     props: { comics, posts },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
   };
 }
 
