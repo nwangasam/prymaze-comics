@@ -1,5 +1,11 @@
 import Link from 'next/link';
 
+const genresTypes = [
+  {
+    id: ''
+  }
+]
+
 export default function ComicGenres() {
   return (
     <div className='genres'>
