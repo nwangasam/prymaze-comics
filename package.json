@@ -17,6 +17,6 @@
     "styled-components": "^5.2.0"
   },
     "resolutions": {
-    "webpack": "webpack@4.44.0"
+    "webpack": "4.44.0"
   }
 }
