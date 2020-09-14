@@ -15,5 +15,8 @@
     "react-elastic-carousel": "^0.7.5",
     "sass": "^1.26.10",
     "styled-components": "^5.2.0"
+  },
+    "resolutions": {
+    "webpack": "4.43"
   }
 }
