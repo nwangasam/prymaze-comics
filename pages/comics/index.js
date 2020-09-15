@@ -5,6 +5,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 import { createClient } from 'contentful';
+import LazyImage from '../../components/LazyImage';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -31,14 +32,14 @@ const Comics = ({ comics }) => {
         <link rel='shortcut icon' href='/icons/favicon.png' />
       </Head>
       <Header open={open} setOpen={setOpen} link='/comics' />
-      <div className='pz-pg comics-pg'>
+      <div className='pz-pg'>
         <div className='container'>
           <h2 className='pz-pg-title'>All Comics</h2>
           <div className='responsive-grid'>
             {parsedComics.map((comic) => (
               <div className='comic' key={comic.id}>
                 <div className='comic__image'>
-                  <img src={`https:${comic.cover}`} alt={comic.title} />
+                  <LazyImage src={`https:${comic.cover}`} alt={comic.title} />
                 </div>
                 <h3 className='comic__title'>{comic.title}</h3>
                 <p className='comic__meta'>

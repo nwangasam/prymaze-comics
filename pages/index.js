@@ -19,11 +19,6 @@ const client = createClient({
 
 const HomePage = ({ comics, posts }) => {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <h2 className='section-title'>Loading site...</h2>;
-  }
 
   return (
     <>

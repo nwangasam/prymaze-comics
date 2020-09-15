@@ -110,3 +110,23 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+/*
+LAZY LOADING STYLES
+*/
+
+img.lazy {
+  opacity: 0;
+}
+img:not(.initial) {
+  transition: opacity .4s ease-out;
+}
+img.initial,
+img.loaded,
+img.error {
+  opacity: 1;
+}
+
+img:not([src]) {
+  visibility: hidden;
+}

@@ -8,7 +8,7 @@ export default function Banner() {
         <div className='banner__half'>
           <div className='banner__content'>
             <h1>
-              Dive into the world of unlimited comics and original content!
+              World of Sports and comics - A cut above the rest
             </h1>
             <Link href='/'>
               <a className='banner__cta'>

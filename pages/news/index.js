@@ -5,6 +5,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 import { createClient } from 'contentful';
+import LazyImage from '../../components/LazyImage';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -54,7 +55,7 @@ const News = ({ posts }) => {
             {parsedPosts.map((post) => (
               <div className='news' key={post.id}>
                 <div className='news__image'>
-                  <img src={post.image} alt={post.title} />
+                  <LazyImage src={post.image} alt={post.title} />
                 </div>
                 <h3 className='news__title'>{truncate(post.title)}</h3>
                 <div className='news__date'>{post.published}</div>
