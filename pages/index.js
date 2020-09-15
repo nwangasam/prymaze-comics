@@ -56,7 +56,8 @@ export async function getStaticProps() {
     console.error(err);
   }
   return {
-    props: { comics, posts },
+    props: { comics, posts,  },
+    revalidate: 1
   };
 }
 
