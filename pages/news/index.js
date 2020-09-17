@@ -37,7 +37,7 @@ const News = ({ posts }) => {
       writer: postFields.fields.writer,
       title: postFields.fields.title,
       published: new Date(postFields.sys.createdAt).toDateString(),
-      slug: postField.fields.slug ? postField.fields.slug : '',
+      slug: postFields.fields.slug ? postFields.fields.slug : '',
     };
   });
   return (
