@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import Header from '../../components/header';
@@ -21,7 +22,7 @@ const Comics = ({ comics }) => {
     summary: postField.fields.summary,
     title: postField.fields.title,
     writer: postField.fields.writer,
-    slug: postField.fields.slug ? postField.fields.slug : ''
+    slug: postField.fields.slug ? postField.fields.slug : '',
   }));
 
   return (
@@ -38,17 +39,21 @@ const Comics = ({ comics }) => {
           <h2 className='pz-pg-title'>All Comics</h2>
           <div className='responsive-grid'>
             {parsedComics.map((comic) => (
-              <div className='comic' key={comic.id}>
-                <div className='comic__image'>
-                  <LazyImage src={`https:${comic.cover}`} alt={comic.title} />
-                </div>
-                <h3 className='comic__title'>{comic.title}</h3>
-                <p className='comic__meta'>
-                  <span className='comic__author'>{comic.publisher}</span>,{' '}
-                  <span className='comic__published-year'>{comic.slug}</span>
-                  <span className='comic__published-year'>{comic.writer}</span>
-                </p>
-              </div>
+              <Link href={`/comics/${comic.slug}`}>
+                <a className='comic' key={comic.id}>
+                  <div className='comic__image'>
+                    <LazyImage src={`https:${comic.cover}`} alt={comic.title} />
+                  </div>
+                  <h3 className='comic__title'>{comic.title}</h3>
+                  <p className='comic__meta'>
+                    <span className='comic__author'>{comic.publisher}</span>,{' '}
+                    <span className='comic__published-year'>{comic.slug}</span>
+                    <span className='comic__published-year'>
+                      {comic.writer}
+                    </span>
+                  </p>
+                </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -72,7 +77,7 @@ export async function getStaticProps() {
   }
   return {
     props: { comics },
-    revalidate: 1
+    revalidate: 1,
   };
 }
 
