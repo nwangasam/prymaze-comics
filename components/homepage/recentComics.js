@@ -74,6 +74,7 @@ const RecentComics = ({ comics }) => {
     summary: postField.fields.summary,
     title: postField.fields.title,
     writer: postField.fields.writer,
+    slug: postField.fields.slug ? postField.fields.slug : ''
   }));
 
   return (
@@ -96,16 +97,26 @@ const RecentComics = ({ comics }) => {
             renderPagination={renderCarouselPagination}
           >
             {parsedComics.map((comic) => (
-              <div className='comic' key={comic.id}>
-                <div className='comic__image'>
-                  <LazyImage src={`https:${comic.cover}`} alt={comic.title} />
-                </div>
-                <h3 className='comic__title'>{truncate(comic.title)}</h3>
-                <p className='comic__meta'>
-                  <span className='comic__author'>{comic.publisher}</span>,{' '}
-                  <span className='comic__published-year'>{comic.writer}</span>
-                </p>
-              </div>
+                <Link href={`/comics/${comic.slug}`} key={comic.id}>
+                  <a className='comic'>
+                    <div className='comic__image'>
+                      <LazyImage
+                        src={`https:${comic.cover}`}
+                        alt={comic.title}
+                      />
+                    </div>
+                    <h3 className='comic__title'>{truncate(comic.title)}</h3>
+                    <p className='comic__meta'>
+                      <span className='comic__author'>{comic.publisher}</span>,{' '}
+                      <span className='comic__published-year'>
+                        {comic.slug}
+                      </span>
+                      <span className='comic__published-year'>
+                        {comic.writer}
+                      </span>
+                    </p>
+                  </a>
+                </Link>
             ))}
           </Carousel>
         </div>

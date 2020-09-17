@@ -37,12 +37,12 @@ function renderCarouselPagination() {
   return <div />;
 }
 
-function truncate(input, limit=45) {
+function truncate(input, limit = 52) {
   if (typeof input !== 'string' || input.length <= limit) return input;
   const str2Arr = input.split(' ');
 
-  let truncatedWordArr = []
-  
+  let truncatedWordArr = [];
+
   str2Arr.reduce((total, curr) => {
     if (total + curr.length < limit) {
       truncatedWordArr.push(curr);
@@ -64,7 +64,7 @@ export default function RecentNews({ posts }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return  <h2 className='section-title'>Loading site...</h2>
+    return <h2 className='section-title'>Loading site...</h2>;
   }
 
   const parsedPosts = posts.map((postFields) => {
@@ -73,10 +73,11 @@ export default function RecentNews({ posts }) {
       image: postFields.fields.image.fields.file.url,
       writer: postFields.fields.writer,
       title: postFields.fields.title,
-      published: new Date(postFields.sys.createdAt).toDateString()
-    }
+      slug: postFields.fields.slug ? postFields.fields.slug : '',
+      published: new Date(postFields.sys.createdAt).toDateString(),
+    };
   });
-  
+
   return (
     <section className='recent-news'>
       <div className='container gray-bg'>
@@ -86,31 +87,30 @@ export default function RecentNews({ posts }) {
             <a className='see-all'>See all</a>
           </Link>
         </div>
-     
 
-      <Carousel
-        itemsToShow={4}
-        itemPadding={[16, 6]}
-        itemsToScroll={3}
-        focusOnSelect={false}
-        breakPoints={breakPoints}
-        renderArrow={renderCarouselArrows}
-        renderPagination={renderCarouselPagination}
-      >
-        {parsedPosts.map((post, i) => (
-          <div className='news' key={post.id}>
-            <div className='news__image'>
-              {/* <img src={post.image} alt={post.title} /> */}
-              <LazyImage
-                alt={post.title}
-                src={post.image}
-               />
-            </div>
-            <h3 className='news__title'>{truncate(post.title)}</h3>
-            <div className='news__date'>{post.published}</div>
-          </div>
-        ))}
-      </Carousel>
+        <Carousel
+          itemsToShow={4}
+          itemPadding={[16, 6]}
+          itemsToScroll={3}
+          focusOnSelect={false}
+          breakPoints={breakPoints}
+          renderArrow={renderCarouselArrows}
+          renderPagination={renderCarouselPagination}
+        >
+          {parsedPosts.map((post, i) => (
+            <Link href={`/news/${post.slug}`} key={post.id}>
+              <a className='news'>
+                <div className='news__image'>
+                  {/* <img src={post.image} alt={post.title} /> */}
+                  <LazyImage alt={post.title} src={post.image} />
+                </div>
+                <h3 className='news__title'>{truncate(post.title)}</h3>
+                <div className='news__date'>{post.slug}</div>
+                <div className='news__date'>{post.published}</div>
+              </a>
+            </Link>
+          ))}
+        </Carousel>
       </div>
     </section>
   );

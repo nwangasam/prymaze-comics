@@ -37,6 +37,7 @@ const News = ({ posts }) => {
       writer: postFields.fields.writer,
       title: postFields.fields.title,
       published: new Date(postFields.sys.createdAt).toDateString(),
+      slug: postField.fields.slug ? postField.fields.slug : ''
     };
   });
   return (
@@ -58,6 +59,7 @@ const News = ({ posts }) => {
                   <LazyImage src={post.image} alt={post.title} />
                 </div>
                 <h3 className='news__title'>{truncate(post.title)}</h3>
+                <div className='news__date'>{post.slug}</div>
                 <div className='news__date'>{post.published}</div>
               </div>
             ))}
