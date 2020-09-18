@@ -47,7 +47,6 @@ const Comics = ({ comics }) => {
                   <h3 className='comic__title'>{comic.title}</h3>
                   <p className='comic__meta'>
                     <span className='comic__author'>{comic.publisher}</span>,{' '}
-                    <span className='comic__published-year'>{comic.slug}</span>
                     <span className='comic__published-year'>
                       {comic.writer}
                     </span>

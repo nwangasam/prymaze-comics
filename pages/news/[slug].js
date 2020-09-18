@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { createClient } from 'contentful';
 
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -14,8 +15,8 @@ const NewsDetails = ({ news, createdAt, updatedAt }) => {
   return (
     <>
       <Header link={'/news'} open={open} setOpen={setOpen} />
-      <div className='container'>
-        <div className='newsDetails'>
+      <div className='newsDetails'>
+        <div className='container'>
           <h1 className='newsDetails__title'>{news.title}</h1>
           <div className='newsDetails__meta'>
             <span className='newsDetails__author'>
@@ -34,6 +35,7 @@ const NewsDetails = ({ news, createdAt, updatedAt }) => {
           <p className='newsDetails__content'>{news.content}</p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,7 +1,8 @@
 .newsDetails {
-  --bg-color: $light;
-  $light: $black;
+  $dark: #fff;
+  $light: #131211;
   padding-top: 12rem;
+  background: $dark;
   &__title {
     color: $light;
     font-size: calc(2rem + 2vw);
@@ -11,28 +12,38 @@
   &__meta {
     font-size: 1.34em;
     display: flex;
+    color: rgba($light, 0.6);
     @extend .mb-2;
     & > *:not(:last-child) {
-      border-right: 1px solid rgba($dark, 0.3);
+      border-right: 1px solid rgba($light, 0.7);
     }
   }
   &__author,
   &__published,
   &__updated {
-    margin-right: .8rem;
-    padding-right: .8rem;
+    margin-right: 0.8rem;
+    padding-right: 0.8rem;
     margin-bottom: 1rem;
   }
   &__image {
     img {
-        display: block;
-        max-width: 100%;
+      display: block;
+      max-width: 100%;
     }
     @extend .mb-2;
   }
+  &__main {
+      margin-bottom: 3rem;
+  }
   &__content {
-      font-size: 1.5rem;
-      line-height: 1.5;
-      color: $gray;
+    font-size: 1.8rem;
+    line-height: 2em;
+    font-weight: 300;
+    color: $light;
+    max-width: 800px;
+    @include media('>tablet') {
+      font-size: 1.8rem;
+      line-height: 2.2em;
+    }
   }
 }

@@ -60,7 +60,6 @@ const News = ({ posts }) => {
                     <LazyImage src={post.image} alt={post.title} />
                   </div>
                   <h3 className='news__title'>{truncate(post.title)}</h3>
-                  <div className='news__date'>{post.slug}</div>
                   <div className='news__date'>{post.published}</div>
                 </a>
               </Link>

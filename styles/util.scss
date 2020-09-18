@@ -102,11 +102,16 @@
   }
 }
 .responsive-grid {
-  grid-template-columns: repeat(2, 1fr);
+  @include media('>480px') {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @include media('>640px') {
     grid-template-columns: repeat(3, 1fr);
   }
-  @include media('>tablet') {
+  @include media('>769px') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include media('>desktop') {
     grid-template-columns: repeat(5, 1fr);
   }
 }

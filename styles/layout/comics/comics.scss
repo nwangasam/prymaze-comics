@@ -10,7 +10,8 @@
 
 .pz-pg {
   min-height: 100vh;
-  margin-top: 10rem;
+  padding-top: $headerHeight;
+  background-color: $dark;
   &-title {
     font-size: 2rem;
     color: #ffbf29;

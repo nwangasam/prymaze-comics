@@ -4,7 +4,7 @@ import MobileNav from '../components/mobileNav';
 export default function Header({ open, setOpen, link }) {
   return (
     <>
-      <MobileNav open={open} setOpen={setOpen} link={link} />
+      {open && <MobileNav open={open} setOpen={setOpen} link={link} />}
       <header className='header'>
         <div className='container'>
           <div className='header__inner'>
