@@ -21,4 +21,8 @@
 @import './modules/comics';
 
 /* Page Styles - Comics Page */
-@import './layout/comics/comics'
+@import './layout/comics/comics';
+@import './layout/comics/comic-details';
+
+/* Page Styles - News Page */
+@import './layout/news/news-details';

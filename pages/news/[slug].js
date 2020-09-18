@@ -1,15 +1,39 @@
-import { createClient } from 'contentful';
+import { useState } from 'react';
 import Head from 'next/head';
+import { createClient } from 'contentful';
+
+import Header from '../../components/header';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
-const NewsDetails = ({ news }) => {
+const NewsDetails = ({ news, createdAt, updatedAt }) => {
+  const [open, setOpen] = useState(false);
   return (
     <>
-      <h1 style={{ fontSize: '4rem', color: '#fff' }}>{news.title}</h1>
+      <Header link={'/news'} open={open} setOpen={setOpen} />
+      <div className='container'>
+        <div className='newsDetails'>
+          <h1 className='newsDetails__title'>{news.title}</h1>
+          <div className='newsDetails__meta'>
+            <span className='newsDetails__author'>
+              <b>By</b> {news.writer}
+            </span>
+            <span className='newsDetails__published'>
+              {new Date(createdAt).toDateString()}
+            </span>
+            <span className='newsDetails__updated'>
+              <b>Updated</b> {new Date(updatedAt).toDateString()}
+            </span>
+          </div>
+          <div className='newsDetails__image'>
+            <img src={news.image.fields.file.url} alt={news.title} />
+          </div>
+          <p className='newsDetails__content'>{news.content}</p>
+        </div>
+      </div>
     </>
   );
 };
@@ -24,9 +48,12 @@ export async function getStaticProps({ params }) {
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
   let news = await fetchEntries();
+  console.log(news[0].sys);
   return {
     props: {
       news: news[0].fields,
+      createdAt: news[0].sys.createdAt,
+      updatedAt: news[0].sys.updatedAt,
     },
   };
 }

@@ -9,7 +9,6 @@ import RecentComics from '../components/homepage/recentComics';
 import ComicGenres from '../components/homepage/comicGenres';
 
 import { createClient } from 'contentful';
-import { useRouter } from 'next/router';
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
