@@ -6,7 +6,6 @@ import Footer from '../components/footer';
 import Banner from '../components/homepage/banner';
 import RecentNews from '../components/homepage/recentNews';
 import RecentComics from '../components/homepage/recentComics';
-// import PopularComics from '../components/homepage/popularComics';
 import ComicGenres from '../components/homepage/comicGenres';
 
 import { createClient } from 'contentful';
@@ -34,7 +33,6 @@ const HomePage = ({ comics, posts }) => {
       <Banner />
       <RecentNews posts={posts} />
       <RecentComics comics={comics} />
-      {/* <PopularComics /> */}
       <ComicGenres />
       <Footer />
     </>
