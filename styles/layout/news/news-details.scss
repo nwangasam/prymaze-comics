@@ -3,6 +3,7 @@
   $light: #131211;
   padding-top: 12rem;
   background: $dark;
+  @extend .mb-2;
   &__title {
     color: $light;
     font-size: calc(2rem + 2vw);

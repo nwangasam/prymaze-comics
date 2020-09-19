@@ -18,17 +18,24 @@
 .news {
   width: 100%;
   display: block;
+  margin-bottom: 1rem;
 
   &__title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 1.5rem 0 .875rem;
     font-weight: 400;
     color: $light;
+    @include media('<tablet') {
+      font-size: 2rem;
+    }
   }
   &__date {
     font-size: 1.1rem;
     letter-spacing: 0.45px;
     color: rgba($light, 0.6);
+    @include media('<tablet') {
+      font-size: 1.4rem;
+    }
   }
   &__image {
     height: 0;

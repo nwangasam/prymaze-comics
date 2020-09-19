@@ -1,8 +1,9 @@
 .site-footer {
-    background: $black;
-    @extend .section;   
-    margin: 2rem 0;
-    color: rgba($light, .7);
-    text-align: center;
-    font-size: 1.2rem;
+  background: $black;
+  color: rgba($light, 0.7);
+  font-size: 1.2rem;
+  min-height: 4rem;
+  &__copy {
+      text-align: center;
+  }
 }

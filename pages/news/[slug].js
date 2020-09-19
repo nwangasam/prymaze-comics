@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import { createClient } from 'contentful';
-
+// import marked from 'marked';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
@@ -14,6 +15,12 @@ const NewsDetails = ({ news, createdAt, updatedAt }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
+    <Head>
+      <title>
+        {news.title}
+        <link rel='shortcut icon' href='/icons/favicon.png' />
+      </title>
+    </Head>
       <Header link={'/news'} open={open} setOpen={setOpen} />
       <div className='newsDetails'>
         <div className='container'>
@@ -32,7 +39,14 @@ const NewsDetails = ({ news, createdAt, updatedAt }) => {
           <div className='newsDetails__image'>
             <img src={news.image.fields.file.url} alt={news.title} />
           </div>
-          <p className='newsDetails__content'>{news.content}</p>
+          <div className='newsDetails__main'>
+            {/* <div
+              className='newsDetails__content'
+              dangerouslySetInnerHTML={{ __html: marked(news.content) }} /> */}
+            <div className='newsDetails__content'>
+              {documentToReactComponents(news.postContent)}
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
@@ -50,7 +64,6 @@ export async function getStaticProps({ params }) {
     throw new Error(`Error getting Entries for ${content_type}.`);
   };
   let news = await fetchEntries();
-  console.log(news[0].sys);
   return {
     props: {
       news: news[0].fields,
