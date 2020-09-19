@@ -54,10 +54,10 @@ function truncate(input, limit = 52) {
 
 let breakPoints = [
   { width: 1, itemsToShow: 1, itemsToScroll: 1 },
-  { width: 320, itemsToShow: 2, itemsToScroll: 2 },
-  { width: 640, itemsToShow: 3, itemsToScroll: 3 },
-  { width: 768, itemsToShow: 4, itemsToScroll: 4 },
-  { width: 1024, itemsToShow: 5 },
+  { width: 520, itemsToShow: 2, itemsToScroll: 2 },
+  { width: 720, itemsToShow: 3, itemsToScroll: 3 },
+  { width: 840, itemsToShow: 4, itemsToScroll: 4 },
+  { width: 1240, itemsToShow: 5 },
 ];
 
 export default function RecentNews({ posts }) {
@@ -83,14 +83,11 @@ export default function RecentNews({ posts }) {
       <div className='container gray-bg'>
         <div className='flex-row mb-2'>
           <h2 className='section-title'>Recent sports news</h2>
-          <Link href='/news'>
-            <a className='see-all'>See all</a>
-          </Link>
         </div>
 
         <Carousel
           itemsToShow={4}
-          itemPadding={[16, 6]}
+          itemPadding={[0, 12, 0, 0]}
           itemsToScroll={3}
           focusOnSelect={false}
           breakPoints={breakPoints}
@@ -110,6 +107,9 @@ export default function RecentNews({ posts }) {
             </Link>
           ))}
         </Carousel>
+         <Link href='/news'>
+            <a className='see-all'>See all</a>
+          </Link>
       </div>
     </section>
   );

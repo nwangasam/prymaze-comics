@@ -40,9 +40,9 @@ function renderCarouselPagination() {
 let breakPoints = [
   { width: 1, itemsToShow: 1, itemsToScroll: 1 },
   { width: 320, itemsToShow: 2, itemsToScroll: 2 },
-  { width: 640, itemsToShow: 3, itemsToScroll: 3 },
-  { width: 768, itemsToShow: 4, itemsToScroll: 4 },
-  { width: 1024, itemsToShow: 5 },
+  { width: 480, itemsToShow: 4, itemsToScroll: 4 },
+  { width: 768, itemsToShow: 5, itemsToScroll: 5 },
+  { width: 1024, itemsToShow: 6, itemsToScroll: 6 },
 ];
 
 function truncate(input, limit = 45) {
@@ -81,15 +81,13 @@ const RecentComics = ({ comics }) => {
     <section className='recent-comics'>
       <div className='container gray-bg'>
         <div className='flex-row mb-2'>
-          <h2 className='section-title'>New Comic Releases</h2>
-          <Link href='/comics'>
-            <a className='see-all'>See all</a>
-          </Link>
+          <h2 className='section-title'>New comic releases</h2>
+         
         </div>
         <div className='comics'>
           <Carousel
             itemsToShow={4}
-            itemPadding={[16, 6]}
+            itemPadding={[0, 12, 0, 0]}
             itemsToScroll={3}
             focusOnSelect={false}
             breakPoints={breakPoints}
@@ -116,6 +114,9 @@ const RecentComics = ({ comics }) => {
                 </Link>
             ))}
           </Carousel>
+          <Link href='/comics'>
+            <a className='see-all'>See all</a>
+          </Link>
         </div>
       </div>
     </section>

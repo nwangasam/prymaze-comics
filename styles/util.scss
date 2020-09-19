@@ -27,7 +27,7 @@
 }
 .gray-bg {
   background: $dark;
-  padding: 2rem 1.5rem;
+  padding: 2rem 0 2rem 1.5rem;
   width: 100%;
 }
 @media (min-width: 1320px) {
@@ -61,8 +61,12 @@
   z-index: 1;
   svg {
     circle {
-      opacity: .65;
-      fill: $blue;
+      opacity: 0.75;
+      fill: $black;
+      box-shadow: 0px 2px 8px rgba($light, .4);
+    }
+    path {
+      opacity: .7;
     }
   }
   &.active {
@@ -82,24 +86,22 @@
   }
 }
 .section {
-  padding: 2.5rem 0 0;
+  padding: 0.875rem 0 0;
   // border-bottom: 1px solid rgba($light, .1);
 }
 .pt-header {
   padding-top: $headerHeight;
 }
+.pad-title {
+  padding: 2rem 1.1rem;
+}
 .mb-2 {
   margin-bottom: 2rem;
 }
 .section-title {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+  font-weight: 400;
   color: $yellow;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  font-family: $font-family-condensed;
-  @include media('<360px') {
-    font-size: 1.875rem;
-  }
 }
 .responsive-grid {
   @include media('>480px') {
@@ -116,6 +118,28 @@
   }
 }
 
+.mUZZN {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.see-all {
+  color: $yellow;
+  padding: 1.2rem 2rem;
+  border: 1px solid $yellow;
+  border-radius: 3px;
+  margin: 2rem 0;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  max-width: 320px;
+  &:hover {
+    color: $light;
+    background: rgba($yellow, .3);
+    border: 1px solid transparent;
+  }
+}
 /*
 LAZY LOADING STYLES
 */
@@ -124,7 +148,7 @@ img.lazy {
   opacity: 0;
 }
 img:not(.initial) {
-  transition: opacity .4s ease-out;
+  transition: opacity 0.4s ease-out;
 }
 img.initial,
 img.loaded,

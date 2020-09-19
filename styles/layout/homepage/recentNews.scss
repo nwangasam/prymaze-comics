@@ -3,17 +3,6 @@
   background: $black;
   color: $light;
 }
-.see-all {
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  color: rgba($light, 0.85);
-  letter-spacing: 1.5px;
-  &:hover {
-    text-decoration: underline;
-    color: rgba($light, 1);
-  }
-}
 
 .news {
   width: 100%;
@@ -25,9 +14,6 @@
     margin: 1.5rem 0 .875rem;
     font-weight: 400;
     color: $light;
-    @include media('<tablet') {
-      font-size: 2rem;
-    }
   }
   &__date {
     font-size: 1.1rem;

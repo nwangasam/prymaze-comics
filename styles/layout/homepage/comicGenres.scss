@@ -1,7 +1,4 @@
 .genre {
-  &s {
-    margin-top: 2rem;
-  }
   min-width: auto;
   width: 100%;
   background: rgb(26, 26, 26);
@@ -40,9 +37,9 @@
     min-height: 4rem;
     overflow-x: hidden;
     overscroll-behavior-x: contain;
+    padding-top: 1rem;
 
     &__grid {
-      margin-top: 2rem;
       flex-wrap: nowrap;
       overflow: auto;
       scroll-behavior: smooth;

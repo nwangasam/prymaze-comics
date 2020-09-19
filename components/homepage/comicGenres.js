@@ -26,10 +26,10 @@ const genresTypes = [
 
 export default function ComicGenres() {
   return (
-    <div className='genres'>
+    <div className='genres section'>
       <div className='container gray-bg'>
+          <h2 className='section-title mb-2'>Comics by genres</h2>
         <section className='genre-shoveler'>
-          <h2 className='section-title'>COMICS BY GENRES</h2>
           <div className='genre-shoveler__grid'>
             {genresTypes.map((genre) => (
               <Link href='/' key={genre.id}>
