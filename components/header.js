@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import MobileNav from '../components/mobileNav';
 
-export default function Header({ open, setOpen, link }) {
+export default function Header({ open, setOpen, link, bgColor }) {
   return (
     <>
       {open && <MobileNav open={open} setOpen={setOpen} link={link} />}
-      <header className='header'>
+      <header
+        className='header'
+        style={{ backgroundColor: bgColor ? bgColor : 'transparent' }}
+      >
         <div className='container'>
           <div className='header__inner'>
             <Link href='/'>
@@ -88,7 +91,6 @@ export default function Header({ open, setOpen, link }) {
           </div>
         </div>
       </header>
-      
     </>
   );
 }

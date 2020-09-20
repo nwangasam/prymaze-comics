@@ -15,13 +15,13 @@ const NewsDetails = ({ news, createdAt, updatedAt }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-    <Head>
-      <title>
-        {news.title}
-        <link rel='shortcut icon' href='/icons/favicon.png' />
-      </title>
-    </Head>
-      <Header link={'/news'} open={open} setOpen={setOpen} />
+      <Head>
+        <title>
+          {news.title}
+          <link rel='shortcut icon' href='/icons/favicon.png' />
+        </title>
+      </Head>
+      <Header link={'/news'} open={open} setOpen={setOpen} bgColor='#131211' />
       <div className='newsDetails'>
         <div className='container'>
           <h1 className='newsDetails__title'>{news.title}</h1>
