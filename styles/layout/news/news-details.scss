@@ -2,6 +2,8 @@
   $dark: #fff;
   $light: #131211;
   padding-top: 12rem;
+  padding-bottom: 12rem;
+  margin-bottom: -3rem;
   background: $dark;
   @extend .mb-2;
   &__title {
@@ -34,7 +36,7 @@
     @extend .mb-2;
   }
   &__main {
-      margin-bottom: 3rem;
+    margin-bottom: 3rem;
   }
   &__content {
     font-size: 1.8rem;
