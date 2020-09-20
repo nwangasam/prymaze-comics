@@ -63,10 +63,10 @@
     circle {
       opacity: 0.75;
       fill: $black;
-      box-shadow: 0px 2px 8px rgba($light, .4);
+      box-shadow: 0px 2px 8px rgba($light, 0.4);
     }
     path {
-      opacity: .7;
+      opacity: 0.7;
     }
   }
   &.active {
@@ -117,8 +117,9 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
-
-.mUZZN {
+.mUZZN,
+.sc-dlnjPT,
+.rec-slider-container {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
@@ -136,7 +137,7 @@
   max-width: 320px;
   &:hover {
     color: $light;
-    background: rgba($yellow, .3);
+    background: rgba($yellow, 0.3);
     border: 1px solid transparent;
   }
 }
