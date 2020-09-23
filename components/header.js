@@ -1,13 +1,20 @@
 import Link from 'next/link';
 import MobileNav from '../components/mobileNav';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ease } from '../animation/animation';
 
 export default function Header({ open, setOpen, link, bgColor }) {
   return (
     <>
-      {open && <MobileNav open={open} setOpen={setOpen} link={link} />}
-      <header
+      <AnimatePresence>
+        {open && <MobileNav open={open} setOpen={setOpen} link={link} />}
+      </AnimatePresence>
+      <motion.header
         className='header'
         style={{ backgroundColor: bgColor ? bgColor : 'transparent' }}
+        initial={{ y: '-100%' }}
+        animate={{ y: '0' }}
+        transition={{ duration: 0.8, ease }}
       >
         <div className='container'>
           <div className='header__inner'>
@@ -90,7 +97,7 @@ export default function Header({ open, setOpen, link, bgColor }) {
             </div>
           </div>
         </div>
-      </header>
+      </motion.header>
     </>
   );
 }

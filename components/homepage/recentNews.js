@@ -107,9 +107,9 @@ export default function RecentNews({ posts }) {
             </Link>
           ))}
         </Carousel>
-         <Link href='/news'>
-            <a className='see-all'>See all</a>
-          </Link>
+        <Link href='/news'>
+          <a className='see-all'>See all</a>
+        </Link>
       </div>
     </section>
   );

@@ -1,4 +1,25 @@
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const slideUpParent = {
+  animate: {
+    transition: {
+      duration: 1,
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const slideUp = {
+  initial: {
+    x: '100%',
+    opacity: 0,
+  },
+  animate: {
+    x: '0',
+    opacity: 1,
+  },
+};
 
 export default function Banner() {
   return (
@@ -6,18 +27,32 @@ export default function Banner() {
       <div className='banner-bg' />
       <div className='banner__inner'>
         <div className='banner__half'>
-          <div className='banner__content'>
+          <motion.div
+            variants={slideUpParent}
+            initial='initial'
+            animate='animate'
+            className='banner__content'
+          >
             <h1>
-              World of Sports and comics - A cut above the rest
+              <motion.div className='line'>
+                <motion.span variants={slideUp}>
+                  World of Sports and
+                </motion.span>
+              </motion.div>
+              <motion.div className='line'>
+                <motion.span variants={slideUp}>
+                  comics - A cut above
+                </motion.span>
+              </motion.div>
+              <motion.div className='line'>
+                <motion.span variants={slideUp}>the rest</motion.span>
+              </motion.div>
             </h1>
             <Link href='/'>
-              <a className='banner__cta'>
+              <motion.a className='banner__cta' variants={slideUp}>
                 Explore
                 <span>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 80 80'
-                  >
+                  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'>
                     <g transform='translate(-434 -748)'>
                       <g
                         transform='translate(434 748)'
@@ -45,11 +80,11 @@ export default function Banner() {
                         />
                       </g>
                     </g>
-                  </svg>  
+                  </svg>
                 </span>
-              </a>
+              </motion.a>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

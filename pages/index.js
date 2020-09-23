@@ -15,7 +15,7 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
-const HomePage = ({ comics, posts }) => {
+const HomePage = ({ comics, posts, error }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -29,10 +29,16 @@ const HomePage = ({ comics, posts }) => {
         ></link>
       </Head>
       <Header open={open} setOpen={setOpen} link='/' />
-      <Banner />
-      <RecentNews posts={posts} />
-      <RecentComics comics={comics} />
-      <ComicGenres />
+      {!error ? (
+        <>
+          <Banner />
+          <RecentNews posts={posts} />
+          <RecentComics comics={comics} />
+          <ComicGenres />
+        </>
+      ) : (
+        <h1>Please Check your internet connection</h1>
+      )}
       <Footer />
     </>
   );
@@ -49,13 +55,16 @@ export async function getStaticProps() {
   try {
     comics = await fetchEntries('comic');
     posts = await fetchEntries('post');
+    return {
+      props: { comics, posts },
+      revalidate: 1,
+    };
   } catch (err) {
     console.error(err);
+    return {
+      props: { error: err },
+    };
   }
-  return {
-    props: { comics, posts,  },
-    revalidate: 1
-  };
 }
 
 export default HomePage;

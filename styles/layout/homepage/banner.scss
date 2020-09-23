@@ -14,7 +14,8 @@
     z-index: 0;
     transform: scale(1.2);
     background-repeat: no-repeat;
-    background-position: -31vh 38vh;
+    // background-position: -31vh 38vh;
+    background-position: -62vw 69vw;
     pointer-events: none;
     background-image: url(/images/banner-bg-md.png);
     @include media('>579px') {
@@ -35,7 +36,7 @@
     }
   }
   &__content {
-    max-width: 450px;
+    max-width: 500px;
     padding: 2rem;
     position: relative;
     margin: 12rem auto;
@@ -47,7 +48,7 @@
     }
 
     h1 {
-      font-size: calc(2.6rem + 1.8vw);
+      font-size: calc(2.7rem + 1.8vw);
       text-transform: uppercase;
       color: #82fffb;
       font-family: 'Oswald', 'sans-serif';
@@ -55,8 +56,19 @@
       letter-spacing: 1px;
       font-weight: 500;
       margin-bottom: 0.54em;
-      @include media('>tablet') {
-        font-size: calc(2rem + 1.8vw);
+      .line {
+        overflow: hidden;
+        min-height: 1.2em;
+        span {
+          display: inline-block;
+        }
+      }
+      @include media('>700px') {
+        font-size: calc(2.4rem + 1.8vw);
+        margin-bottom: 1em;
+      }
+      @include media('>1200px') {
+        font-size: calc(1.9rem + 1.8vw);
         margin-bottom: 1em;
       }
     }
