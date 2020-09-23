@@ -5,26 +5,36 @@ const slideUpParent = {
   animate: {
     transition: {
       duration: 1,
-      staggerChildren: 0.5,
+      staggerChildren: 0.3,
     },
   },
 };
 
 const slideUp = {
   initial: {
-    x: '100%',
+    y: '100%',
     opacity: 0,
   },
   animate: {
-    x: '0',
+    y: '0',
     opacity: 1,
+    transition: {
+      damping: 100,
+      stiffness: 50,
+      duration: 0.3,
+      mass: 0.6,
+    },
   },
 };
 
 export default function Banner() {
   return (
     <div className='banner'>
-      <div className='banner-bg' />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, duration: 0.8, delay: 1 }}
+        className='banner-bg'
+      />
       <div className='banner__inner'>
         <div className='banner__half'>
           <motion.div
